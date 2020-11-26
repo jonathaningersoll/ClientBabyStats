@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.auth-container {
+  border: 1px solid skyblue;
+}
+
+.navigator {
+  border: 1px solid red;
+}
+
+.login-col {
+  border: 1px solid red;
+}
+
+.register {
+  border: 1px solid red;
+}
+
+/* DASHBOARD STYLES */
+#exampleNumber{
+  width: 100px;
+}
+
+.row {
+  margin-right: 0px;
+  margin: none;
+  padding: 0px;
+}
+.dashboard {
+  border: 1px solid green;
+  margin: 0px;
+  padding: 0px;
+}
+
+.dashboard-stat{
+  border: 1px solid green;
+  height: 200px;
+
+}
+
+/* LOG PORTAL TILES */
+.portal-tiles {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 0px;
+}
+
+.tile{
+  border: 1px solid red;
+  height: 300px;
+  margin: 0px;
+  padding: 10px;
+}
