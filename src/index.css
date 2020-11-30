@@ -34,9 +34,7 @@ code {
 }
 
 .row {
-  margin-right: 0px;
-  margin: none;
-  padding: 0px;
+  padding-left: 14px;
 }
 .dashboard {
   border: 1px solid green;
@@ -62,4 +60,9 @@ code {
   height: 300px;
   margin: 0px;
   padding: 10px;
+}
+
+/* Create log tiles */
+time-input{
+  width: 100px;
 }
