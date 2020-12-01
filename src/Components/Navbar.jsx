@@ -9,28 +9,37 @@ import {
      // NavLink,
      // NavbarText
 } from 'reactstrap';
+import {
+     Link
+} from 'react-router-dom';
 
-function Sitebar(props) {
+export default class Sitebar extends React.Component{
+     constructor(props){
+          super(props)
+     }
 
-     return(
-          <Navbar color="light" light expand="md" className="navigator">
-               <NavbarBrand>Home</NavbarBrand>
-               {
-                    props.token ? 
-                    <>
-                         <Nav className="ml-auto" navbar>
-                              <NavItem>
-                                   <Button onClick={props.clickLogout}>Logout</Button>
-                              </NavItem>
-                         </Nav>
-                    </>
-                    : <></>
-               }
-               <Nav className="ml-auto">
-                    
-               </Nav>
-          </Navbar>
-     )
+     render(){
+          return(
+               <Navbar color="light" light expand="md" className="navigator">
+                    <Link to={{pathname: "/"}}>
+                         <NavbarBrand>Home</NavbarBrand>
+                    </Link>
+                    {
+                         this.props.token ? 
+                         <>
+                              <Nav className="ml-auto" navbar>
+                                   <NavItem>
+                                        <Button onClick={this.props.clickLogout}>Logout</Button>
+                                   </NavItem>
+                              </Nav>
+                         </>
+                         : <></>
+                    }
+                    <Nav className="ml-auto">
+                         
+                    </Nav>
+               </Navbar>
+
+          )
+     }
 }
-
-export default Sitebar

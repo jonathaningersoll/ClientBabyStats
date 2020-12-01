@@ -18,6 +18,12 @@ import {
      ModalBody,
      ModalFooter,
 } from 'reactstrap';
+import {
+     BrowserRouter,
+     Route,
+     Link,
+     Switch
+} from 'react-router-dom';
 
 // (1) const Home = (props) => {
 export default class Home extends React.Component{
@@ -44,6 +50,7 @@ export default class Home extends React.Component{
                oz: 0,
                ft: 0,
                inches: 0,
+               childView: ''
           }
      }
 
@@ -127,8 +134,8 @@ export default class Home extends React.Component{
 
      render() {
           return (
-               <>
-                    <Row className="col-4">
+               <BrowserRouter>
+                    <Row>
 
                     {/* CHILD SELECTION DROPDOWN MENU */}
                          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -216,17 +223,10 @@ export default class Home extends React.Component{
                               </ModalBody>
                          </Modal>
                     </Row>
-
-                    <Row>
-                         <Col className="dashboard">
-                              <Dashboard token={this.props.token} activeChild={this.state.activeChildData}/>
-                         </Col>
-
-                         <Col className="portal-tiles">
-                              <LogPortal token={this.props.token} id={this.state.activeChildData.id}/>
-                         </Col>
-                    </Row>
-               </>
+                    <Switch>
+                         <Route path={`/${this.state.childView}`} component={this.state.childView} />
+                    </Switch>
+               </BrowserRouter>
           );
      }
 }

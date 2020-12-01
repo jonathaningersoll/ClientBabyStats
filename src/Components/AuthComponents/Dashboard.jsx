@@ -1,8 +1,8 @@
 import React from 'react';
-import DiaperStats from './DiaperStats';
-import GrowthStats from './GrowthStats';
-import FoodStats from './FoodStats';
-import SleepStats from './SleepStats';
+import DiaperStats from './Diaper/DiaperStats';
+import GrowthStats from './Growth/GrowthStats';
+import FoodStats from './Food/FoodStats';
+import SleepStats from './Sleep/SleepStats';
 import {
      Row,
 } from 'reactstrap'

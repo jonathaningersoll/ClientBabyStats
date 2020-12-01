@@ -25,7 +25,7 @@ code {
 }
 
 .register {
-  border: 1px solid red;
+  background-color: salmon;
 }
 
 /* DASHBOARD STYLES */
@@ -34,30 +34,26 @@ code {
 }
 
 .row {
-  padding-left: 14px;
+  padding-left: 15px;
 }
 
 .dashboard {
-  border: 1px solid green;
   margin: 0px;
   padding: 0px;
 }
 
 .dashboard-stat{
-  border: 1px solid green;
   height: 200px;
 
 }
 
 /* LOG PORTAL TILES */
 .portal-tiles {
-  border: 1px solid red;
   padding: 10px;
   margin: 0px;
 }
 
 .tile{
-  border: 1px solid red;
   height: 350px;
   margin: 0px;
   padding: 10px;

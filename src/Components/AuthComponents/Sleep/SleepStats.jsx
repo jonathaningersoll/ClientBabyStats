@@ -3,6 +3,13 @@ import {
      Row,
      Col
 } from 'reactstrap';
+import {
+     BrowserRouter,
+     Link,
+     Route,
+     Switch
+} from 'react-router-dom';
+
 export default class SleepStats extends React.Component{
      constructor(props) {
           super(props)
@@ -45,7 +52,7 @@ export default class SleepStats extends React.Component{
                          {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
                     </div>
                     <div class="stat-details">
-                         <a href="details">Details</a>
+                         <Link to={{pathname: "/SleepDetails"}}>Details</Link>
                     </div>     
                </>
           )
