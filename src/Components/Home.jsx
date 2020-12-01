@@ -128,7 +128,7 @@ export default class Home extends React.Component{
      render() {
           return (
                <>
-                    <Row>
+                    <Row className="col-4">
 
                     {/* CHILD SELECTION DROPDOWN MENU */}
                          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>

@@ -5,6 +5,8 @@ import {
 } from 'reactstrap';
 import Sleep from './Sleep/SleepComponent';
 import Food from './Food/FoodComponent';
+import Diaper from './Diaper/DiaperComponent';
+import Growth from './Growth/GrowthComponent';
 
 export default class LogPortal extends React.Component{
 
@@ -22,10 +24,10 @@ export default class LogPortal extends React.Component{
                     </Row>
                     <Row>
                          <Col className="tile">
-                              Diaper
+                              <Diaper token={this.props.token} childId={this.props.id} />
                          </Col>
                          <Col className="tile">
-                              Growth
+                              <Growth token={this.props.token} childId={this.props.id} />
                          </Col>
                     </Row>
                </>

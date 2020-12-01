@@ -4,7 +4,6 @@ import {
      FormGroup,
      Label,
      Input,
-     ModalFooter,
      Button,
 } from 'reactstrap';
 
@@ -12,13 +11,16 @@ export default class Food extends React.Component{
      constructor(props){
         super(props)
 
-        this.logSleep = this.logSleep.bind(this);
+        this.logMeal = this.logMeal.bind(this);
         this.toggleTile = this.toggleTile.bind(this);
 
         this.state = {
             tileOn: false,
-            newLogStart:'',
-            newLogStop:''
+            newLogDayFed:'',
+            newLogTimeFed:'',
+            newLogBreast:false,
+            newLogBottle:0,
+            newLogSolid:''
         }
      }
 
@@ -26,19 +28,16 @@ export default class Food extends React.Component{
 
     logMeal(e){
         e.preventDefault();
-        let date = new Date();
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        let logStart = `${year}-${month}-${day}:${this.state.newLogStart}:00`;
-        let logStop = `${year}-${month}-${day}:${this.state.newLogStop}:00`;
-        console.log(logStart);
+        let timeFed = (this.state.newLogDayFed + ":" + this.state.newLogTimeFed);
+        console.log(this.state.newLogDayFed, this.state.newLogBottle,this.state.newLogBreast,this.state.newLogSolid);
         fetch('https://jdi-babystats.herokuapp.com/foodlog', {
             method: 'POST',
             body: JSON.stringify({
-                sleeplog: {
-                        start: logStart,
-                        stop: logStop,
+                foodlog: {
+                        time_fed: timeFed,
+                        breast:this.state.newLogBreast,
+                        bottle:this.state.newLogBottle,
+                        solid:this.state.newLogSolid,
                         childId: this.props.childId
                 }
             }),
@@ -54,34 +53,61 @@ export default class Food extends React.Component{
         return(
             !this.state.tileOn ?
             <div>
-                <div onClick={this.toggleTile} className="tile-button">Log Sleep</div>
+                <div onClick={this.toggleTile} className="tile-button">Log Meal</div>
             </div>
             :
             <div>
-                <Form onSubmit={this.logSleep}>
+                <Form onSubmit={this.logMeal}>
                         <FormGroup>
-                            <Label htmlFor="newchildname">Sleep Start:</Label>
+                            <Label htmlFor="day-fed" className="tile-label">Day Fed:</Label>
+                            <Input
+                                type="date"
+                                name="day-fed"
+                                className="time-input"
+                                onChange={(e) => this.setState({newLogDayFed: e.target.value})}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="time-fed" className="tile-label">Time Fed:</Label>
                             <Input
                                 type="time"
-                                name="start"
+                                name="time-fed"
                                 placeholder="HH:MM"
                                 className="time-input"
-                                onChange={(e) => this.setState({newLogStart: e.target.value})}/>
+                                onChange={(e) => this.setState({newLogTimeFed: e.target.value})}/>
                         </FormGroup>
-                        <FormGroup>
-                            <Label htmlFor="newchilddob">Sleep Stop:</Label>
-                            <Input
-                                type="time"
-                                name="stop"
-                                className="time-input"
-                                placeholder="date placeholder"
-                                onChange={(e) => this.setState({newLogStop: e.target.value})}
-                            />
+                        <FormGroup check inline>Breast:
+                            <Label check className="tile-label">
+                                <Input
+                                    type="checkbox"
+                                    name="breast"
+                                    onChange={(e) => this.setState({newLogBreast: e.target.value})}
+                                />
+                            </Label>
                         </FormGroup>
-                        <ModalFooter>
-                            <Button type="submit" color="primary">Log Sleep</Button>
+                        <FormGroup check inline>Bottle(oz):
+                            <Label for="ounces" className="tile-label">
+                                <Input
+                                    type="number"
+                                    name="ounces"
+                                    placeholder="oz"
+                                    onChange={(e) => this.setState({newLogBottle: e.target.value})}
+                                    id="ounces"
+                                />
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label for="solid" className="tile-label">
+                                <Input
+                                    type="text"
+                                    name="solid"
+                                    placeholder="Solid food"
+                                    onChange={(e) => this.setState({newLogSolid: e.target.value})}
+                                    id="solid"
+                                />
+                            </Label>
+                        </FormGroup>
+                            <Button type="submit" color="primary">Log Meal</Button>
                             <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
-                        </ModalFooter>
                 </Form>
             </div>
         )

@@ -16,18 +16,16 @@ export default class FoodStats extends React.Component{
 
      displayLastFewLogs(x){
           if(x){
+               console.log(x);
                return(
                x.reverse().slice(0,7).map(log =>(
                     <Row>
                          <Col className="stat-font">
-                              {/* FOOD LOG ELEMENTS HERE */}
-                         </Col>
-                         <Col className="stat-font">
-                              {/* FOOD LOG ELEMENTS HERE */}
+                              {log.time_fed}
                          </Col>
                     </Row>
                )))
-          }else{return <div></div>}
+          }else{return <div>No logs exist</div>}
      }
 
      render(){
@@ -37,10 +35,10 @@ export default class FoodStats extends React.Component{
                          <h3>Latest food stats </h3>
                          <Row className="status-top-row">
                               <Col>
-                                   {/* Food log info */}
+                                   Last meals:
                               </Col>
                          </Row>
-                         {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
+                         {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.foodlogs)}
                     </div>
                     <div class="stat-details">
                          <a href="details">Details</a>
@@ -49,3 +47,5 @@ export default class FoodStats extends React.Component{
           )
      }
 }
+
+// TODO: CHANGE FOOD MODEL BREAST TO BOOLEAN - RIGHT NOW, FOR WHATEVER REASON, IT'S A STRING??!

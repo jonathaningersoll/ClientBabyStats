@@ -64,7 +64,7 @@ export default class Sleep extends React.Component{
             <div>
                 <Form onSubmit={this.logSleep}>
                         <FormGroup>
-                            <Label htmlFor="newchildname">Sleep Start:</Label>
+                            <Label htmlFor="newchildname" className="tile-label">Sleep Start:</Label>
                             <Input
                                 type="time"
                                 name="start"
@@ -73,7 +73,7 @@ export default class Sleep extends React.Component{
                                 onChange={(e) => this.setState({newLogStart: e.target.value})}/>
                         </FormGroup>
                         <FormGroup>
-                            <Label htmlFor="newchilddob">Sleep Stop:</Label>
+                            <Label htmlFor="newchilddob" className="tile-label">Sleep Stop:</Label>
                             <Input
                                 type="time"
                                 name="stop"
@@ -82,12 +82,13 @@ export default class Sleep extends React.Component{
                                 onChange={(e) => this.setState({newLogStop: e.target.value})}
                             />
                         </FormGroup>
-                        <ModalFooter>
                             <Button type="submit" color="primary">Log Sleep</Button>
                             <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
-                        </ModalFooter>
                 </Form>
             </div>
         )
     }
 }
+
+// TODO: ADD YEAR/MONTH/DAY SELECTION TO THE LOG CREATION > will not require db migration since I'm logging a date - I can just add to the date.
+// TODO: SUCCESS MESSAGE ON CREATION

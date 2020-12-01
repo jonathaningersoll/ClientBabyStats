@@ -36,6 +36,7 @@ code {
 .row {
   padding-left: 14px;
 }
+
 .dashboard {
   border: 1px solid green;
   margin: 0px;
@@ -57,14 +58,17 @@ code {
 
 .tile{
   border: 1px solid red;
-  height: 300px;
+  height: 350px;
   margin: 0px;
   padding: 10px;
+  font-size: 0.75em;
 }
 
 /* Create log tiles */
-time-input{
+.time-input{
   width: 100px;
+  height: 30px;
+  border-radius: none;
 }
 
 .tile-button{
@@ -86,4 +90,13 @@ time-input{
 
 .stat-font{
   font-size: 0.75em;
+}
+
+#ounces{
+  width: 70px;
+  height: 30px;
+}
+
+label{
+  margin-bottom:0px;
 }
