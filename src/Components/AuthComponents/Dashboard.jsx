@@ -1,7 +1,7 @@
 import React from 'react';
 import DiaperStats from './DiaperStats';
-import GrowthStats from './SleepStats';
-import FoodStats from './SleepStats';
+import GrowthStats from './GrowthStats';
+import FoodStats from './FoodStats';
 import SleepStats from './SleepStats';
 import {
      Row,
@@ -30,20 +30,17 @@ export default class Dashboard extends React.Component{
                     </Row>
 
                     <Row className="dashboard-stat">
-                         <div>
-                              {console.log("Dashboard active child: ", this.props.activeChild)}
-                         </div>
-                         <SleepStats activeChild={this.props.activeChild}/>
+                         <SleepStats activeChild={this.props.activeChild} />
                     </Row>
 
                     <Row className="dashboard-stat">
-                         <FoodStats />
+                         <FoodStats activeChild={this.props.activeChild} />                    {/* << currently working on */}
                     </Row>
                     <Row className="dashboard-stat">
-                         <DiaperStats />
+                         <DiaperStats activeChild={this.props.activeChild} />
                     </Row>
                     <Row className="dashboard-stat">
-                         <GrowthStats />
+                         <GrowthStats activeChild={this.props.activeChild} />
                     </Row>
                </div>
           )

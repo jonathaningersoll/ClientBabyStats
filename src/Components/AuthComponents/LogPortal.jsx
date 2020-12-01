@@ -4,6 +4,7 @@ import {
      Col
 } from 'reactstrap';
 import Sleep from './Sleep/SleepComponent';
+import Food from './Food/FoodComponent';
 
 export default class LogPortal extends React.Component{
 
@@ -14,10 +15,9 @@ export default class LogPortal extends React.Component{
                     <Row>
                          <Col className="tile">
                               <Sleep token={this.props.token} childId={this.props.id} />
-                              {!this.props.id ? 'null' : this.props.id}
                          </Col>
                          <Col className="tile">
-                              Food
+                              <Food token={this.props.token} childId={this.props.id} />
                          </Col>
                     </Row>
                     <Row>

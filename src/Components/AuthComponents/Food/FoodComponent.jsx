@@ -8,7 +8,7 @@ import {
      Button,
 } from 'reactstrap';
 
-export default class Sleep extends React.Component{
+export default class Food extends React.Component{
      constructor(props){
         super(props)
 
@@ -24,11 +24,7 @@ export default class Sleep extends React.Component{
 
     toggleTile(){ this.setState({tileOn: !this.state.tileOn}) }
 
-    sleepLogConfirm(){
-        
-    }
-
-    logSleep(e){
+    logMeal(e){
         e.preventDefault();
         let date = new Date();
         let year = date.getFullYear();
@@ -37,7 +33,7 @@ export default class Sleep extends React.Component{
         let logStart = `${year}-${month}-${day}:${this.state.newLogStart}:00`;
         let logStop = `${year}-${month}-${day}:${this.state.newLogStop}:00`;
         console.log(logStart);
-        fetch('https://jdi-babystats.herokuapp.com/sleeplog', {
+        fetch('https://jdi-babystats.herokuapp.com/foodlog', {
             method: 'POST',
             body: JSON.stringify({
                 sleeplog: {
@@ -91,3 +87,6 @@ export default class Sleep extends React.Component{
         )
     }
 }
+
+//TODO: SUCCESS MESSAGE ON CREATION
+//

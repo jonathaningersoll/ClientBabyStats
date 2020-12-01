@@ -1,33 +1,53 @@
 import React from 'react';
-
+import {
+     Row,
+     Col
+} from 'reactstrap';
 export default class SleepStats extends React.Component{
      constructor(props) {
           super(props)
 
           this.state = {
           }
-          this.hyper = this.hyper.bind(this);
+          this.displayLastFewLogs = this.displayLastFewLogs.bind(this);
 
      }
 
-     hyper(x){
-          return(
-               !x ? <div> nothing </div> :
-               x.map(log =>(
-                    <div>
-                         {log.sleep_start}
-                    </div>
-               ))
-          )
+     displayLastFewLogs(x){
+          if(x){
+               return(
+               x.reverse().slice(0,7).map(log =>(
+                    <Row>
+                         <Col className="stat-font">
+                              {log.sleep_start}
+                         </Col>
+                         <Col className="stat-font">
+                              {log.sleep_stop}
+                         </Col>
+                    </Row>
+               )))
+          }else{return <div></div>}
      }
 
      render(){
           return(
-               <div>
-                    {!this.props.activeChild ? console.log("none") : console.log(this.props.activeChild.sleeplogs)}
-                    {!this.props.activeChild ? console.log("nothing here yet") : this.hyper(this.props.activeChild.sleeplogs)}
-                    {/* {!this.props.activeChild.sleeplogs ? 'null' : this.hyper(this.props.activeChild.sleeplogs)} */}
-               </div>
+               <>
+                    <div>
+                         <h3>Latest sleep stats </h3>
+                         <Row className="status-top-row">
+                              <Col>
+                                   Start Time:
+                              </Col>
+                              <Col>
+                                   Stop Time:
+                              </Col>
+                         </Row>
+                         {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
+                    </div>
+                    <div class="stat-details">
+                         <a href="details">Details</a>
+                    </div>     
+               </>
           )
      }
 }

@@ -66,3 +66,24 @@ code {
 time-input{
   width: 100px;
 }
+
+.tile-button{
+  height: 100px;
+  width: 100%;
+  border-radius: none;
+  background-color: darkslategrey;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-top-row{
+  background-color: dimgrey;
+  color: white;
+  width: 100%;
+}
+
+.stat-font{
+  font-size: 0.75em;
+}
