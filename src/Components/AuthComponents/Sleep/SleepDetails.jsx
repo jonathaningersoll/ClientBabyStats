@@ -1,29 +1,20 @@
 import React from 'react';
 import {
      Row,
-     Col
 } from 'reactstrap';
 
-export default class GrowthStats extends React.Component{
+export default class SleepDetails extends React.Component{
      constructor(props){
           super(props)
 
-          this.state = {
-               dropdownOpen: false,
-          }
      }
+
+
      render(){
           return(
 
                <Row>
-                    <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                         <DropdownToggle caret>
-                              {!this.props.a ? 'Select a child(Home)' : this.state.activeChildData.name}
-                         </DropdownToggle>
-                         <DropdownMenu>
-                              {this.kidList()}
-                         </DropdownMenu>
-                    </Dropdown>
+                    Hello
                </Row>
 
                // render dropdown button > full crud buttons (add, update, delete)

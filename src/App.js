@@ -12,6 +12,7 @@ import {
 	Route,                        // 
 	Link,                          // Link triggers a state change in the BrowserRouter which causes the Route to change what's in the view
 } from 'react-router-dom';
+import Sleep from './Components/AuthComponents/Sleep/SleepComponent';
 
 function App() {
 
@@ -44,7 +45,7 @@ function App() {
 			<Navbar clickLogout={clearToken} token={sessionToken} />
 			<Switch>
 				<Route exact path="/" component={protectedViews} />
-				<Route path="/FoodDetails" component={<FoodDetails />} />
+				<Route exact path="/details" component={SleepDetails} />
 				
 				{/* 
 					<Route path="/DiaperDetails" component={DiaperDetails} />

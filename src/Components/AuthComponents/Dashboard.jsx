@@ -32,9 +32,8 @@ export default class Dashboard extends React.Component{
                     <Row className="dashboard-stat">
                          <SleepStats activeChild={this.props.activeChild} />
                     </Row>
-
                     <Row className="dashboard-stat">
-                         <FoodStats activeChild={this.props.activeChild} />                    {/* << currently working on */}
+                         <FoodStats activeChild={this.props.activeChild} />
                     </Row>
                     <Row className="dashboard-stat">
                          <DiaperStats activeChild={this.props.activeChild} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import Dashboard from './AuthComponents/Dashboard';
 import LogPortal from './AuthComponents/LogPortal';
+import SleepDetails from './AuthComponents/Sleep/SleepDetails'
 import {
      Row,
      Dropdown,
@@ -18,11 +19,9 @@ import {
      ModalBody,
      ModalFooter,
 } from 'reactstrap';
-import {
+import{
      BrowserRouter,
-     Route,
-     Link,
-     Switch
+     Link
 } from 'react-router-dom';
 
 // (1) const Home = (props) => {
@@ -50,7 +49,6 @@ export default class Home extends React.Component{
                oz: 0,
                ft: 0,
                inches: 0,
-               childView: ''
           }
      }
 
@@ -222,10 +220,17 @@ export default class Home extends React.Component{
 
                               </ModalBody>
                          </Modal>
+                         <Link to="/details">View Details</Link>
                     </Row>
-                    <Switch>
-                         <Route path={`/${this.state.childView}`} component={this.state.childView} />
-                    </Switch>
+                    <Row>
+                         <Col className="dashboard col-4">
+                              <Dashboard token={this.props.token} activeChild={this.state.activeChildData}/>
+                         </Col>
+
+                         <Col className="portal-tiles col-8">
+                              <LogPortal token={this.props.token} id={this.state.activeChildData.id}/>
+                         </Col>
+                    </Row>
                </BrowserRouter>
           );
      }

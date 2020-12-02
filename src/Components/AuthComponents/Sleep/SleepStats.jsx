@@ -9,6 +9,7 @@ import {
      Route,
      Switch
 } from 'react-router-dom';
+import SleepDetails from './SleepDetails';
 
 export default class SleepStats extends React.Component{
      constructor(props) {
@@ -51,9 +52,6 @@ export default class SleepStats extends React.Component{
                          </Row>
                          {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
                     </div>
-                    <div class="stat-details">
-                         <Link to={{pathname: "/SleepDetails"}}>Details</Link>
-                    </div>     
                </>
           )
      }
