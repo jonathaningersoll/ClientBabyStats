@@ -1,14 +1,10 @@
 import React from 'react';
-import Dashboard from './AuthComponents/Dashboard';
-import LogPortal from './AuthComponents/LogPortal';
-import SleepDetails from './AuthComponents/Sleep/SleepDetails'
 import {
      Row,
      Dropdown,
      DropdownToggle,
      DropdownMenu,
      DropdownItem,
-     Col,
      Button,
      Form,
      FormGroup,
@@ -21,8 +17,12 @@ import {
 } from 'reactstrap';
 import{
      BrowserRouter,
-     Link
+     Link,
+     Route,
+     Switch
 } from 'react-router-dom';
+import MainDashboard from './MainDashboard';
+import Details from './AuthComponents/Details'
 
 // (1) const Home = (props) => {
 export default class Home extends React.Component{
@@ -220,17 +220,18 @@ export default class Home extends React.Component{
 
                               </ModalBody>
                          </Modal>
-                         <Link to="/details">View Details</Link>
+                         <Link to="/dashboard">Dashboard</Link>
+                         <Link to="/details">Edit Child Details</Link>
                     </Row>
-                    <Row>
-                         <Col className="dashboard col-4">
-                              <Dashboard token={this.props.token} activeChild={this.state.activeChildData}/>
-                         </Col>
-
-                         <Col className="portal-tiles col-8">
-                              <LogPortal token={this.props.token} id={this.state.activeChildData.id}/>
-                         </Col>
-                    </Row>
+                    
+                    <Switch>
+                         <Route exact path="/dashboard">
+                              <MainDashboard token={this.props.token} activeChild={this.state.activeChildData} />
+                         </Route>
+                         <Route exact path="/details">
+                              <Details token={this.props.token} activeChild={this.state.activeChild} />
+                         </Route>
+                    </Switch>
                </BrowserRouter>
           );
      }

@@ -39,20 +39,21 @@ export default class SleepStats extends React.Component{
 
      render(){
           return(
-               <>
-                    <div>
-                         <h3>Latest sleep stats </h3>
-                         <Row className="status-top-row">
-                              <Col>
-                                   Start Time:
-                              </Col>
-                              <Col>
-                                   Stop Time:
-                              </Col>
-                         </Row>
+               <BrowserRouter>
+                    <Row className="status-top-row">
+                         <Col>
+                              Start Time:
+                         </Col>
+                         <Col>
+                              Stop Time:
+                         </Col>
+                         <Col>
+                         </Col>
+                    </Row>
+                    <Row>
                          {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
-                    </div>
-               </>
+                    </Row>
+               </BrowserRouter>
           )
      }
 }
