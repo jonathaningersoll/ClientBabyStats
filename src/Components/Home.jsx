@@ -22,7 +22,8 @@ import{
      Switch
 } from 'react-router-dom';
 import MainDashboard from './MainDashboard';
-import Details from './AuthComponents/Details'
+import Details from './AuthComponents/Details';
+import EditChild from './AuthComponents/EditChild';
 
 // (1) const Home = (props) => {
 export default class Home extends React.Component{
@@ -131,11 +132,11 @@ export default class Home extends React.Component{
      }
 
      activeChildLinks(){
-          console.log("links clicked");
           return(
                <>
                     <Link to="/dashboard">Dashboard</Link>
-                    <Link to="/details">Edit Child Details</Link>
+                    <Link to="/details">View Details</Link>
+                    <Link to="/editchild">Edit Child</Link>
                </>
           )
      }
@@ -144,6 +145,7 @@ export default class Home extends React.Component{
           return (
                <BrowserRouter>
                     <Row>
+                         {console.log()}
 
                     {/* CHILD SELECTION DROPDOWN MENU */}
                          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -244,6 +246,9 @@ export default class Home extends React.Component{
                          </Route>
                          <Route exact path="/details">
                               <Details token={this.props.token} activeChild={this.state.activeChildData} />
+                         </Route>
+                         <Route exact path="childedit">
+                              <EditChild token={this.props.token} activeChild={this.state.activeChildData} />
                          </Route>
                     </Switch>
                </BrowserRouter>

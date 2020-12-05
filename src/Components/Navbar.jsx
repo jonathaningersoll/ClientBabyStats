@@ -1,13 +1,11 @@
 import React from 'react';
 import {
      Button,
-     // Collapse,
      Navbar,
      NavbarBrand,
      Nav,
      NavItem,
-     // NavLink,
-     // NavbarText
+     NavLink,
 } from 'reactstrap';
 import {
      Link
@@ -21,7 +19,7 @@ export default class Sitebar extends React.Component{
      render(){
           return(
                <Navbar color="light" light expand="md" className="navigator">
-                    <Link to={{pathname: "/"}}>
+                    <Link to="/">
                          <NavbarBrand>Home</NavbarBrand>
                     </Link>
                     {
@@ -34,6 +32,14 @@ export default class Sitebar extends React.Component{
                               </Nav>
                          </>
                          : <></>
+                    }
+                    {
+                         this.props.role === "Admin" ? 
+                              <Link to="/Admin">
+                                   <NavLink>Admin</NavLink>
+                              </Link>
+                              :
+                              <></>
                     }
                     <Nav className="ml-auto">
                          

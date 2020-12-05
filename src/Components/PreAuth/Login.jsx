@@ -22,7 +22,9 @@ function Login(props) {
           }).then(
                (res) => res.json()
           ).then((data) => {
-               props.updateToken(data.sessionToken)
+               console.log(data);
+               props.updateToken(data.sessionToken);
+               props.setRole(data.role);
           })
      }
 
