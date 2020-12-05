@@ -1,7 +1,8 @@
-import DiaperStats from './DiaperStats';
-import GrowthStats from './SleepStats';
-import FoodStats from './SleepStats';
-import SleepStats from './SleepStats';
+import React from 'react';
+import DiaperStats from './Diaper/DiaperStats';
+import GrowthStats from './Growth/GrowthStats';
+import FoodStats from './Food/FoodStats';
+import SleepStats from './Sleep/SleepStats';
 import {
      Row,
 } from 'reactstrap'
@@ -11,32 +12,36 @@ import {
 // A selection from the drop-down will set the state variables for the child
 
 
-const Dashboard = () => {
+export default class Dashboard extends React.Component{
 
-     // In case I need to move things back:
-     // useEffect(() => {
-     //      fetchChildren();
-     // }, [createChild])
+     constructor(props){
+          super(props);
+          
+          this.state = {
+          }
+     }
 
-     return(
-          <div>
-               <Row className="dashboard">
-                    <h1>Dashboard screen</h1>
-               </Row>
-               <Row className="dashboard-stat">
-                    <SleepStats />
-               </Row>
-               <Row className="dashboard-stat">
-                    <FoodStats />
-               </Row>
-               <Row className="dashboard-stat">
-                    <DiaperStats />
-               </Row>
-               <Row className="dashboard-stat">
-                    <GrowthStats />
-               </Row>
-          </div>
-     )
+     render(){
+
+          return(
+               <div>
+                    <Row className="dashboard">
+                         <h1>{!this.props.activeChild.name ? 'Dashboard' : this.props.activeChild.name}</h1>
+                    </Row>
+
+                    <Row className="dashboard-stat">
+                         <SleepStats activeChild={this.props.activeChild} />
+                    </Row>
+                    <Row className="dashboard-stat">
+                         <FoodStats activeChild={this.props.activeChild} />
+                    </Row>
+                    <Row className="dashboard-stat">
+                         <DiaperStats activeChild={this.props.activeChild} />
+                    </Row>
+                    <Row className="dashboard-stat">
+                         <GrowthStats activeChild={this.props.activeChild} />
+                    </Row>
+               </div>
+          )
+     }
 }
-
-export default Dashboard;

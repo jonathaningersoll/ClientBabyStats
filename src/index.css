@@ -25,7 +25,7 @@ code {
 }
 
 .register {
-  border: 1px solid red;
+  background-color: salmon;
 }
 
 /* DASHBOARD STYLES */
@@ -34,32 +34,65 @@ code {
 }
 
 .row {
-  margin-right: 0px;
-  margin: none;
-  padding: 0px;
+  padding-left: 15px;
 }
+
 .dashboard {
-  border: 1px solid green;
   margin: 0px;
   padding: 0px;
 }
 
 .dashboard-stat{
-  border: 1px solid green;
   height: 200px;
 
 }
 
 /* LOG PORTAL TILES */
 .portal-tiles {
-  border: 1px solid red;
   padding: 10px;
   margin: 0px;
 }
 
 .tile{
-  border: 1px solid red;
-  height: 300px;
+  height: 350px;
   margin: 0px;
   padding: 10px;
+  font-size: 0.75em;
+}
+
+/* Create log tiles */
+.time-input{
+  width: 100px;
+  height: 30px;
+  border-radius: none;
+}
+
+.tile-button{
+  height: 100px;
+  width: 100%;
+  border-radius: none;
+  background-color: darkslategrey;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-top-row{
+  background-color: dimgrey;
+  color: white;
+  width: 100%;
+}
+
+.stat-font{
+  font-size: 0.75em;
+}
+
+#ounces{
+  width: 70px;
+  height: 30px;
+}
+
+label{
+  margin-bottom:0px;
 }
