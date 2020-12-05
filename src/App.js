@@ -6,17 +6,17 @@ import Home from './Components/Home'
 import Navbar from './Components/Navbar';
 import Authorize from './Components/PreAuth/Authorize';
 import SleepDetails from './Components/AuthComponents/Sleep/SleepDetails';
+import Admin from './Components/AuthComponents/Admin';
 import {
 	BrowserRouter,
-	Switch,                       // Determines the different routes in my application
-	Route,                        // 
-	Link,                          // Link triggers a state change in the BrowserRouter which causes the Route to change what's in the view
+	Switch,
+	Route,
 } from 'react-router-dom';
-import Sleep from './Components/AuthComponents/Sleep/SleepComponent';
 
 function App() {
 
 	const [sessionToken, setSessionToken] = useState('');
+	const [ userRole, setUserRole ] = useState('');
 
 	useEffect(() => {
 		if(localStorage.getItem('token')){                              // if local storage has a token,
@@ -35,24 +35,28 @@ function App() {
 	}
 
 	const protectedViews = () => {
-		return (sessionToken === localStorage.getItem('token') ? <Home token={sessionToken} />
-		// else, run the unauthorized stuff
-		: <Authorize updateToken={updateToken} />)
+		return (sessionToken === localStorage.getItem('token')
+		? <Home token={sessionToken} />
+		: <Authorize setRole={setRole} updateToken={updateToken} />)
+	}
+
+	const adminView = () => {
+		return (userRole === "Admin"
+		? <Admin token={sessionToken} />
+		: null)
+	}
+
+	const setRole = (role) => {
+		setUserRole(role);
 	}
 
 	return (
 		<BrowserRouter>
-			<Navbar clickLogout={clearToken} token={sessionToken} />
+			<Navbar clickLogout={clearToken} token={sessionToken} role={userRole} setRole={setRole}/>
 			<Switch>
 				<Route exact path="/" component={protectedViews} />
 				<Route exact path="/details" component={SleepDetails} />
-				
-				{/* 
-					<Route path="/DiaperDetails" component={DiaperDetails} />
-					<Route path="/GrowthDetails" component={GrowthDetails} />
-					<Route path="/ChildDetails" component={ChildDetails} />
-					<Route path="/Admin" component={Admin
-				*/}
+				<Route exact path="/admin" component={adminView} />
 			</Switch>
 		</BrowserRouter>
 	);

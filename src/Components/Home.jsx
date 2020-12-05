@@ -132,7 +132,6 @@ export default class Home extends React.Component{
      }
 
      activeChildLinks(){
-          console.log("links clicked");
           return(
                <>
                     <Link to="/dashboard">Dashboard</Link>
@@ -146,6 +145,7 @@ export default class Home extends React.Component{
           return (
                <BrowserRouter>
                     <Row>
+                         {console.log()}
 
                     {/* CHILD SELECTION DROPDOWN MENU */}
                          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -248,7 +248,7 @@ export default class Home extends React.Component{
                               <Details token={this.props.token} activeChild={this.state.activeChildData} />
                          </Route>
                          <Route exact path="childedit">
-                              <ChildEdit token={this.props.token} activeChild={this.state.activeChildData} />
+                              <EditChild token={this.props.token} activeChild={this.state.activeChildData} />
                          </Route>
                     </Switch>
                </BrowserRouter>

@@ -24,8 +24,6 @@ export default class NewComponent extends React.Component{
 
      editSleepLog(e){
           e.preventDefault();
-          console.log("Edit sleep log: ", this.props.log);
-          console.log("States: ", this.state)
 
           fetch(`https://jdi-babystats.herokuapp.com/sleeplog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{

@@ -10,7 +10,7 @@ function Authorize (props) {
                <Row>
                     
                     <Col md="6" className="login-col">
-                         <Login updateToken={props.updateToken} />
+                         <Login updateToken={props.updateToken} setRole={props.setRole} />
                     </Col>
                </Row>
                <Row>
