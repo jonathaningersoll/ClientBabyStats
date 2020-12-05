@@ -4,7 +4,6 @@ import {
      FormGroup,
      Label,
      Input,
-     ModalFooter,
      Button,
 } from 'reactstrap';
 
@@ -14,9 +13,12 @@ export default class Sleep extends React.Component{
 
         this.logSleep = this.logSleep.bind(this);
         this.toggleTile = this.toggleTile.bind(this);
+        this.zeroPadder = this.zeroPadder.bind(this);
 
         this.state = {
             tileOn: false,
+            newLogStartDate: '',
+            newLogStopDate: '',
             newLogStart:'',
             newLogStop:''
         }
@@ -24,18 +26,14 @@ export default class Sleep extends React.Component{
 
     toggleTile(){ this.setState({tileOn: !this.state.tileOn}) }
 
-    sleepLogConfirm(){
-        
+    zeroPadder(d){
+        return(d<10?0+`${d}`:d);
     }
 
     logSleep(e){
         e.preventDefault();
-        let date = new Date();
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        let logStart = `${year}-${month}-${day}:${this.state.newLogStart}:00`;
-        let logStop = `${year}-${month}-${day}:${this.state.newLogStop}:00`;
+        let logStart = `${this.state.newLogStartDate}:${this.state.newLogStart}:00`;
+        let logStop = `${this.state.newLogStopDate}:${this.state.newLogStop}:00`;
         console.log(logStart);
         fetch('https://jdi-babystats.herokuapp.com/sleeplog', {
             method: 'POST',
@@ -63,32 +61,47 @@ export default class Sleep extends React.Component{
             :
             <div>
                 <Form onSubmit={this.logSleep}>
-                        <FormGroup>
-                            <Label htmlFor="newchildname" className="tile-label">Sleep Start:</Label>
-                            <Input
-                                type="time"
-                                name="start"
-                                placeholder="HH:MM"
-                                className="time-input"
-                                onChange={(e) => this.setState({newLogStart: e.target.value})}/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label htmlFor="newchilddob" className="tile-label">Sleep Stop:</Label>
-                            <Input
-                                type="time"
-                                name="stop"
-                                className="time-input"
-                                placeholder="date placeholder"
-                                onChange={(e) => this.setState({newLogStop: e.target.value})}
-                            />
-                        </FormGroup>
-                            <Button type="submit" color="primary">Log Sleep</Button>
-                            <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
+                    <FormGroup>
+                        <Label htmlFor="start_day" className="tile-label">Sleep Start:</Label>
+                        <Input
+                            type="date"
+                            name="start_day"
+                            className="time-input"
+                            onChange={(e) => this.setState({newLogStartDate: e.target.value})}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="newchildname" className="tile-label"></Label>
+                        <Input
+                            type="time"
+                            name="start"
+                            placeholder="HH:MM"
+                            className="time-input"
+                            onChange={(e) => this.setState({newLogStart: e.target.value})}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="end_day" className="tile-label">Sleep Stop:</Label>
+                        <Input
+                            type="date"
+                            name="end_day"
+                            className="time-input"
+                            onChange={(e) => this.setState({newLogStopDate: e.target.value})}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="newchilddob" className="tile-label"></Label>
+                        <Input
+                            type="time"
+                            name="stop"
+                            className="time-input"
+                            placeholder="date placeholder"
+                            onChange={(e) => this.setState({newLogStop: e.target.value})}
+                        />
+                    </FormGroup>
+                    <Button type="submit" color="primary">Log Sleep</Button>
+                    <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
                 </Form>
             </div>
         )
     }
 }
 
-// TODO: ADD YEAR/MONTH/DAY SELECTION TO THE LOG CREATION > will not require db migration since I'm logging a date - I can just add to the date.
 // TODO: SUCCESS MESSAGE ON CREATION

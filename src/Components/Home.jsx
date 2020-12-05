@@ -37,6 +37,7 @@ export default class Home extends React.Component{
           this.fillChildrenPool = this.fillChildrenPool.bind(this);
           this.getChildren = this.getChildren.bind(this);
           this.getChild = this.getChild.bind(this);
+          this.activeChildLinks = this.activeChildLinks.bind(this);
           
           this.state = {
                dropdownOpen: false,
@@ -73,6 +74,7 @@ export default class Home extends React.Component{
           // fetch('url',{init}).then( (response) => {})                      // the .thens exist solely to 
 
           fetch('https://jdi-babystats.herokuapp.com/child', {
+          // fetch('http://localhost:3030/child', {
                method: 'POST',
                body: JSON.stringify({
                     child: {
@@ -88,15 +90,13 @@ export default class Home extends React.Component{
                })
           }).then( (res) => res.json())
           .then(() => {
-               this.newMethod();
-          })
-          .then(() => {
                this.modalToggle();
           }    );
      }
 
      getChild(id){
           fetch(`https://jdi-babystats.herokuapp.com/child/${id}`, {
+          // fetch(`http://localhost:3030/child/${id}`, {
                method:'GET',
                headers: new Headers({
                     'Content-Type': 'application/json',
@@ -105,12 +105,12 @@ export default class Home extends React.Component{
           }).then( (res) => res.json())
           .then((childData) => {
                this.setState({ activeChildData: childData });
-               console.log('Home Active child set: ', childData);
           })
      }
 
      getChildren() {
           fetch('https://jdi-babystats.herokuapp.com/child', {
+          // fetch('http://localhost:3030/child', {
                method: 'GET',
                headers: new Headers ({
                     'Content-Type': 'application/json',
@@ -130,6 +130,16 @@ export default class Home extends React.Component{
           this.setState({kids: childrenData});
      }
 
+     activeChildLinks(){
+          console.log("links clicked");
+          return(
+               <>
+                    <Link to="/dashboard">Dashboard</Link>
+                    <Link to="/details">Edit Child Details</Link>
+               </>
+          )
+     }
+
      render() {
           return (
                <BrowserRouter>
@@ -141,7 +151,7 @@ export default class Home extends React.Component{
                                    {!this.state.activeChildData.name ? 'Select a child(Home)' : this.state.activeChildData.name}
                               </DropdownToggle>
                               <DropdownMenu>
-                                   {this.kidList()}
+                                   {!this.state.kids ? null : this.kidList()}
                               </DropdownMenu>
                          </Dropdown>
 
@@ -220,8 +230,12 @@ export default class Home extends React.Component{
 
                               </ModalBody>
                          </Modal>
-                         <Link to="/dashboard">Dashboard</Link>
-                         <Link to="/details">Edit Child Details</Link>
+                         {!this.state.activeChildData.id ? <div></div> : 
+                              <>
+                                   <Link to="/dashboard">Dashboard</Link>
+                                   <Link to="/details">View Details</Link>
+                              </>
+                         }
                     </Row>
                     
                     <Switch>
@@ -229,7 +243,7 @@ export default class Home extends React.Component{
                               <MainDashboard token={this.props.token} activeChild={this.state.activeChildData} />
                          </Route>
                          <Route exact path="/details">
-                              <Details token={this.props.token} activeChild={this.state.activeChild} />
+                              <Details token={this.props.token} activeChild={this.state.activeChildData} />
                          </Route>
                     </Switch>
                </BrowserRouter>
