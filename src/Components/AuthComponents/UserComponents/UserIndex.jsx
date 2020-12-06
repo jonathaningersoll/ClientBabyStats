@@ -49,7 +49,6 @@ export default class UserIndex extends React.Component{
                          {this.displayUsers()}
                     </tbody>
                </Table>
-
                </>
           )
      }

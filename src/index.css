@@ -33,10 +33,6 @@ code {
   width: 100px;
 }
 
-.row {
-  padding-left: 15px;
-}
-
 .dashboard {
   margin: 0px;
   padding: 0px;
@@ -95,4 +91,12 @@ code {
 
 label{
   margin-bottom:0px;
+}
+
+.b-red{
+  border: 1px solid red;
+}
+
+.container{
+  padding-top: 30px;
 }

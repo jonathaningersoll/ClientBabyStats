@@ -13,38 +13,43 @@ import SleepDetails from './Sleep/SleepDetails';
 import FoodDetails from './Food/FoodDetails';
 import DiaperDetails from './Diaper/DiaperDetails';
 import GrowthDetails from './Growth/GrowthDetails';
+import EditChild from './ChildEdit/EditChild'
 
 export default class Details extends React.Component{
 
      render(){
           return(
                <BrowserRouter>
-                    <Row>
-                         <Col md="2">
-                              <Row>
-                                   <Link to="/sleepdetails">
+                         <Col>
+                              <Link to="/sleepdetails">
+                                   <Row className="detail-button">
                                         Sleep logs
-                                   </Link>
-                                   
-                              </Row>
-                              <Row>
-                                   <Link to="/fooddetails">
+                                   </Row>
+                              </Link>
+                              <Link to="/fooddetails">
+                                   <Row className="detail-button">
                                         Food logs
-                                   </Link>
-                              </Row>
-                              <Row>
-                                   <Link to="/diaperdetails">
+                                   </Row>
+                              </Link>
+                              <Link to="/diaperdetails">
+                                   <Row className="detail-button">
                                         Diaper logs
-                                   </Link>
-                              </Row>
-                              <Row>
-                                   <Link to="/growthdetails">
+                                   </Row>
+                              </Link>
+                              <Link to="/growthdetails">
+                                   <Row className="detail-button">
                                         Growth logs
-                                   </Link>
+                                   </Row>
+                              </Link>
+                              <Link to="/childedit">
+                                   <Row className="detail-button">
+                                        Edit Child
+                                   </Row>
+                              </Link>
                                    
-                              </Row>
                          </Col>
-                         <Col md="10">
+                         
+                         <Col>
                               <Switch>
                                    <Route exact path="/sleepdetails">
                                         <SleepDetails token={this.props.token} child={this.props.activeChild}/>
@@ -58,9 +63,11 @@ export default class Details extends React.Component{
                                    <Route path="/growthdetails">
                                         <GrowthDetails token={this.props.token} child={this.props.activeChild} />
                                    </Route>
+                                   <Route path="/childedit">
+                                        <EditChild token={this.props.token} child={this.props.activeChild} />
+                                   </Route>
                               </Switch>
                          </Col>
-                    </Row>
                </BrowserRouter>
           )
      }
