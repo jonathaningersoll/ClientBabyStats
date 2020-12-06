@@ -18,18 +18,23 @@ export default class Admin extends React.Component{
      constructor(props){
           super(props)
 
-          this.deleteUser = this.deleteUser.bind(this);
           this.editUser = this.editUser.bind(this);
           this.turnEditOn = this.turnEditOn.bind(this);
           this.turnEditOff = this.turnEditOff.bind(this);
           this.submitNewUserData = this.submitNewUserData.bind(this);
+          this.turnDeleteOn = this.turnDeleteOn.bind(this);
+          this.turnDeleteOff = this.turnDeleteOff.bind(this);
+          this.stageDelete = this.stageDelete.bind(this);
+          this.deleteUser = this.deleteUser.bind(this);
 
           this.state = {
                users: [],
                editModalOn: false,
-               
+               deleteModalOn: false,
+
                emailToEdit: '',
                usernameToEdit: '',
+               roleToEdit: '',
                idToEdit: ''
           }
      }
@@ -42,8 +47,49 @@ export default class Admin extends React.Component{
           this.setState({editModalOn: false});
      }
 
-     deleteUser(user){
-          console.log(user, "has been deleted");
+     turnDeleteOff(){
+          this.setState({
+               deleteModalOn: false,
+               emailToEdit: '',
+               usernameToEdit: '',
+               roleToEdit: '',
+               idToEdit: ''
+          });
+     }
+
+     turnDeleteOn(){
+          this.setState({deleteModalOn: true});
+     }
+
+     stageDelete(user){
+          this.turnDeleteOn();
+          this.setState({
+               usernameToEdit: user.username,
+               idToEdit: user.id
+          })
+
+     }
+
+     deleteUser(e){
+          e.preventDefault();
+          console.log(this.state.usernameToEdit, " will now be deleted");
+          fetch(`https://jdi-babystats.herokuapp.com/user/${this.state.idToEdit}`, {
+          // fetch(`http://localhost:3030/foodlog/${log.id}`, {
+               method: 'DELETE',
+               headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': this.props.token
+               })
+          })
+          .then(this.turnDeleteOff())
+          .then(()=>{
+               this.setState({
+                    emailToEdit: '',
+                    usernameToEdit: '',
+                    idToEdit: ''
+               });
+               this.getUsers();
+          })
      }
 
      editUser(user){
@@ -51,7 +97,6 @@ export default class Admin extends React.Component{
           this.setState({
                emailToEdit: user.email,
                usernameToEdit: user.username,
-               // passwordToEdit: user.passwordhash,
                roleToEdit: user.role,
                idToEdit: user.id
           })
@@ -110,7 +155,7 @@ export default class Admin extends React.Component{
           return(
                <Container>
                     <Row>
-                         <UserIndex users={this.state.users} deleteUser={this.deleteUser} editUser={this.editUser}/>
+                         <UserIndex users={this.state.users} stageDelete={this.stageDelete} editUser={this.editUser}/>
                     </Row>
                     {/* EDIT MODAL */}
                     <Modal isOpen={this.state.editModalOn} toggle={this.turnEditOff}>
@@ -146,6 +191,16 @@ export default class Admin extends React.Component{
                                         <Button color="secondary" onClick={this.turnEditOff}>Cancel</Button>
                                    </ModalFooter>
                               </Form>
+                         </ModalBody>
+                    </Modal>
+
+                    <Modal isOpen={this.state.deleteModalOn} toggle={this.turnDeleteOff}>
+                         <ModalBody>
+                              Are you sure you want to delete this user?
+                              <ModalFooter>
+                                   <Button color="danger" onClick={this.deleteUser}>Delete</Button>
+                                   <Button color="secondary" onClick={this.turnDeleteOff}>Cancel</Button>
+                              </ModalFooter>
                          </ModalBody>
                     </Modal>
                </Container>

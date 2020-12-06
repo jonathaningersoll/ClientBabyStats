@@ -143,7 +143,7 @@ export default class EditChild extends React.Component{
                                         <Input
                                              type="number"
                                              placeholder={this.state.weightToEdit}
-                                             onchange={(e) => this.setState({weightToEdit: e.target.value})}
+                                             onChange={(e) => this.setState({weightToEdit: e.target.value})}
                                              />
                                    </FormGroup>
                                    <FormGroup>
