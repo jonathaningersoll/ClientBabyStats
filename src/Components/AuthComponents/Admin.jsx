@@ -2,7 +2,6 @@ import React from 'react';
 import {
      Container,
      Row,
-     Col,
      Modal,
      ModalBody,
      ModalFooter,
@@ -28,6 +27,7 @@ export default class Admin extends React.Component{
           this.state = {
                users: [],
                editModalOn: false,
+               
                emailToEdit: '',
                usernameToEdit: '',
                idToEdit: ''
