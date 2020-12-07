@@ -72,8 +72,6 @@ export default class FoodDetails extends React.Component{
      render(){
           return(
                <>
-                    Food details
-                    {console.log("Food Details begun...")}
                     {
                          !this.state.activeEdit ? 
                          <Table striped>
@@ -84,6 +82,7 @@ export default class FoodDetails extends React.Component{
                                         <th>Breast:</th>
                                         <th>Bottle:</th>
                                         <th>Solid Food:</th>
+                                        <th>Options:</th>
                                    </tr>
                               </thead>
                               <tbody>

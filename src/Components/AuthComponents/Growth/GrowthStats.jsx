@@ -1,13 +1,15 @@
 import React from 'react';
-import {
-     Row,
-     Col
-} from 'reactstrap';
 
 export default class GrowthStats extends React.Component{
      constructor(props){
           super(props)
           this.displayLastFewLogs = this.displayLastFewLogs.bind(this);
+          this.niceDate = this.niceDate.bind(this);
+     }
+
+     niceDate(date){
+          var d = new Date(date).toUTCString();
+          return d;
      }
 
      displayLastFewLogs(x){
@@ -15,11 +17,18 @@ export default class GrowthStats extends React.Component{
                console.log(x);
                return(
                x.sort().reverse().slice(0,7).map(log =>(
-                    <Row>
-                         <Col className="stat-font">
-                              {log.check_date}
-                         </Col>
-                    </Row>
+                    <>
+                         <tr className="dash-stat-text">
+                              <td>{this.niceDate(log.check_date)}</td>
+                              <td>{log.length}</td>
+                              <td>{log.weight}</td>
+                         </tr>
+                    </>
+                    // <Row>
+                    //      <Col className="stat-font">
+                    //           {log.check_date}
+                    //      </Col>
+                    // </Row>
                )))
           }else{return <div>No logs exist</div>}
      }
@@ -27,7 +36,23 @@ export default class GrowthStats extends React.Component{
      render(){
           return(
                <>
-                    <div>
+               <div>
+                    <h3>Latest Growth Stats</h3>
+               </div>
+                    <table>
+                         <thead>
+                              <tr>
+                                   <th>Date</th>
+                                   <th>Height:</th>
+                                   <th>Weight:</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.growthlogs)}
+                         </tbody>
+                    </table>
+
+                    {/* <div>
                          <h3>Latest growth logs: </h3>
                          <Row className="status-top-row">
                               <Col>
@@ -38,7 +63,7 @@ export default class GrowthStats extends React.Component{
                     </div>
                     <div class="stat-details">
                          <a href="details">Details</a>
-                    </div>     
+                    </div>*/}
                </>
           )
      }

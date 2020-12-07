@@ -16,14 +16,6 @@ code {
   border: 1px solid skyblue;
 }
 
-.navigator {
-  border: 1px solid red;
-}
-
-.login-col {
-  border: 1px solid red;
-}
-
 .register {
   background-color: salmon;
 }
@@ -39,20 +31,17 @@ code {
 }
 
 .dashboard-stat{
-  height: 200px;
-
-}
-
-/* LOG PORTAL TILES */
-.portal-tiles {
-  padding: 10px;
-  margin: 0px;
+  border-top: 8px solid #21A0A0;
 }
 
 .tile{
-  height: 350px;
+  height: auto;
   margin: 0px;
   padding: 10px;
+  font-size: 0.75em;
+}
+
+.dash-stat-text{
   font-size: 0.75em;
 }
 
@@ -67,8 +56,8 @@ code {
   height: 100px;
   width: 100%;
   border-radius: none;
-  background-color: darkslategrey;
-  color: white;
+  background-color: #E53D00;
+  color: #FCFFF7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,4 +88,45 @@ label{
 
 .container{
   padding-top: 30px;
+}
+
+.child-dropdown{
+  width: 100%;
+  padding: 8px;
+}
+
+.btn{
+  border-radius: 0px;
+}
+
+.detail-button{
+  padding: 10px 0px 10px 10px;
+  color: #FCFFF7;
+  background-color: #E53D00;
+}
+.detail-button:visited{
+  color: FCFFF7; 
+}
+.detail-button:hover{
+  background-color: #FFE900;
+  color: #21A0A0;
+  text-decoration: none;
+}
+
+.details-data{
+  background-color: #FCFFF7;
+  border-right: 8px solid #21A0A0;
+}
+
+.kid-links{
+  padding: 12px;
+  display: inline;
+  margin-left: 8px;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.kid-links:hover{
+  background-color: #21A0A0;
+  color: #FCFFF7;
+  text-decoration: none;
 }

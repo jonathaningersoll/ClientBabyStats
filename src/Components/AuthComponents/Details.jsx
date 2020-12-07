@@ -20,7 +20,7 @@ export default class Details extends React.Component{
      render(){
           return(
                <BrowserRouter>
-                         <Col>
+                         <Col className="col-3">
                               <Link to="/sleepdetails">
                                    <Row className="detail-button">
                                         Sleep logs
@@ -45,14 +45,13 @@ export default class Details extends React.Component{
                                    <Row className="detail-button">
                                         Edit Child
                                    </Row>
-                              </Link>
-                                   
+                              </Link>  
                          </Col>
                          
-                         <Col>
+                         <Col className="col-9 details-data">
                               <Switch>
                                    <Route exact path="/sleepdetails">
-                                        <SleepDetails token={this.props.token} child={this.props.activeChild}/>
+                                        <SleepDetails token={this.props.token} child={this.props.activeChild} />
                                    </Route>
                                    <Route path="/fooddetails">
                                         <FoodDetails token={this.props.token} child={this.props.activeChild} />

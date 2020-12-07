@@ -70,7 +70,6 @@ export default class SleepDetails extends React.Component{
      render(){
           return(
                <>
-                    Sleep details
                     {
                          !this.state.activeEdit ? 
                          <Table striped>
@@ -79,6 +78,7 @@ export default class SleepDetails extends React.Component{
                                         <th>#</th>
                                         <th>Start</th>
                                         <th>Stop</th>
+                                        <th>Options:</th>
                                    </tr>
                               </thead>
                               <tbody>
