@@ -31,7 +31,7 @@ export default class Sitebar extends React.Component{
                          : <></>
                     }
                     {
-                         this.props.role === "Admin" ? 
+                         this.props.role === "Admin" && this.props.token ? 
                               <Link to="/Admin">
                                    <NavLink>Admin</NavLink>
                               </Link>

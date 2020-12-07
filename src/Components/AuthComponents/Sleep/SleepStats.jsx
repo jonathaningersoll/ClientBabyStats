@@ -33,15 +33,6 @@ export default class SleepStats extends React.Component{
                               <td>{this.lengthOfSleep(log.sleep_start, log.sleep_stop)}</td>
                          </tr>
                     </>
-
-                    // <Row>
-                    //      <Col className="stat-font">
-                    //           {log.sleep_start}
-                    //      </Col>
-                    //      <Col className="stat-font">
-                    //           {log.sleep_stop}
-                    //      </Col>
-                    // </Row>
                )))
           }else{return <div></div>}
      }
@@ -63,19 +54,6 @@ export default class SleepStats extends React.Component{
                               {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
                          </tbody>
                     </table>
-                    {/* <Row className="status-top-row">
-                         <Col>
-                              Start Time:
-                         </Col>
-                         <Col>
-                              Stop Time:
-                         </Col>
-                         <Col>
-                         </Col>
-                    </Row>
-                    <Row>
-                         {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
-                    </Row> */}
                </>
           )
      }

@@ -29,7 +29,6 @@ export default class DiaperUpdate extends React.Component{
 
      editDiaperLog(e){
           e.preventDefault();
-          console.log(this.state);
           fetch(`https://jdi-babystats.herokuapp.com/diaperlog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
@@ -47,7 +46,6 @@ export default class DiaperUpdate extends React.Component{
                     'Authorization': this.props.token
                })
           }).then((res) => {
-               console.log(res);
                res.json();
                this.props.off();
           }).catch((err) => {

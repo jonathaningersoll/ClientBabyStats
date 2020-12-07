@@ -14,7 +14,6 @@ export default class GrowthStats extends React.Component{
 
      displayLastFewLogs(x){
           if(x){
-               console.log(x);
                return(
                x.sort().reverse().slice(0,7).map(log =>(
                     <>

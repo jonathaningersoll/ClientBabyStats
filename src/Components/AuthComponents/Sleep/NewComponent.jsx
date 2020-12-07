@@ -40,30 +40,11 @@ export default class NewComponent extends React.Component{
                     'Authorization': this.props.token
                })
           }).then((res) => {
-               console.log(res);
                res.json();
                this.props.off();
           }).catch((err) => {
                console.log("error!!!!!! ", err);
           })
-
-          // fetch(`https://jdi-babystats.herokuapp.com/sleeplog/${this.props.log.id}`, {
-          //      method: 'PUT',
-          //      body: JSON.stringify({
-
-          //           sleeplog: {
-          //                start: `${this.state.editStartDate}:${this.state.editStartTime}:00`,
-          //                stop: `${this.state.editStopDate}:${this.state.editStopTime}:00`,
-          //                childId: this.props.child.childId
-          //           }
-          //      }),
-          //      headers: new Headers({
-          //           'Content-Type': 'application/json',
-          //           'Authorization': this.props.token
-          //      })
-          // }).then((res) => {
-          //      console.log("Response: ",res);
-          // })
      }
 
      render(){

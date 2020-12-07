@@ -23,6 +23,7 @@ export default class EditChild extends React.Component{
           this.turnEditOn = this.turnEditOn.bind(this);
           this.turnEditOff = this.turnEditOff.bind(this);
           this.editChild = this.editChild.bind(this);
+          this.deleteChild = this.deleteChild.bind(this);
 
          this.state = {
          childList: [],
@@ -43,6 +44,29 @@ export default class EditChild extends React.Component{
           this.setState({editModalOn:false});
      }
 
+     deleteChild(child){
+          fetch(`https://jdi-babystats.herokuapp.com/child/${child.id}`, {
+          // fetch(`http://localhost:3030/foodlog/${log.id}`, {
+               method: 'DELETE',
+               headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': this.props.token
+               })
+          }).then((res) => {
+               console.log(res.json())
+          }).then(()=>{
+               this.setState({
+                    childNameToEdit: '',
+                    dobToEdit: '',
+                    weightToEdit: '',
+                    lengthToEdit: '',
+                    idToEdit: '',
+               });
+          }).then(()=>{
+               this.getChildren();
+          })
+     }
+
      editChild(child){
           this.turnEditOn();
           this.setState({
@@ -56,7 +80,6 @@ export default class EditChild extends React.Component{
 
      submitNewChildData(e){
           e.preventDefault();
-          console.log(this.state);
           fetch(`https://jdi-babystats.herokuapp.com/child/${this.state.idToEdit}`, {
                method: 'PUT',
                body: JSON.stringify({
@@ -110,7 +133,7 @@ export default class EditChild extends React.Component{
           return(
                <Container>
                     <Row>
-                         <ChildIndex childList={this.state.childList} deleteChild={this.state.deleteChild} editChild={this.editChild} />
+                         <ChildIndex childList={this.state.childList} deleteChild={this.deleteChild} editChild={this.editChild} />
                     </Row>
                     <Modal isOpen={this.state.editModalOn} toggle={this.turnEditOff}>
                          <ModalBody>

@@ -25,9 +25,6 @@ export default class FoodUpdate extends React.Component{
 
      editFoodLog(e){
           e.preventDefault();
-          console.log("Edit food log: ", this.props.log);
-          console.log("States: ", this.state)
-
           fetch(`https://jdi-babystats.herokuapp.com/foodlog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
@@ -43,7 +40,6 @@ export default class FoodUpdate extends React.Component{
                     'Authorization': this.props.token
                })
           }).then((res) => {
-               console.log(res);
                res.json();
                this.props.off();
           }).catch((err) => {

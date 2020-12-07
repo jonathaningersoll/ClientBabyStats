@@ -29,7 +29,6 @@ export default class Food extends React.Component{
     logMeal(e){
         e.preventDefault();
         let timeFed = (this.state.newLogDayFed + ":" + this.state.newLogTimeFed);
-        console.log(this.state.newLogDayFed, this.state.newLogBottle,this.state.newLogBreast,this.state.newLogSolid);
         fetch('https://jdi-babystats.herokuapp.com/foodlog', {
             method: 'POST',
             body: JSON.stringify({

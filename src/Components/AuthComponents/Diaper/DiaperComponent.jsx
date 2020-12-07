@@ -35,7 +35,6 @@ export default class Diaper extends React.Component{
      logDiaper(e){
           e.preventDefault();
           let timeChanged = (this.state.newLogDiaperDay + ":" + this.state.newLogDiaperTime);
-          console.log(timeChanged, "Dirty: ", this.onToBool(this.state.newLogDirty), "Wet: ", this.onToBool(this.state.newLogWet), "Dry: ", this.onToBool(this.state.newLogDry));
 
           fetch('https://jdi-babystats.herokuapp.com/diaperlog', {
                method: 'POST',

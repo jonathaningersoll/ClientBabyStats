@@ -34,7 +34,6 @@ export default class Sleep extends React.Component{
         e.preventDefault();
         let logStart = `${this.state.newLogStartDate}:${this.state.newLogStart}:00`;
         let logStop = `${this.state.newLogStopDate}:${this.state.newLogStop}:00`;
-        console.log(logStart);
         fetch('https://jdi-babystats.herokuapp.com/sleeplog', {
             method: 'POST',
             body: JSON.stringify({

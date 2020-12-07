@@ -24,17 +24,14 @@ export default class FoodDetails extends React.Component{
      editModalToggle(){ this.setState({editModal: !this.state.editModal}) }
 
      editLog(log){
-          console.log(log);
           this.setState({logToEdit: log});
           this.setState({activeEdit: !this.state.activeEdit})
      }
      editLogOff(){
-          console.log("EDITLOGOFF RUN")
           this.setState({activeEdit: !this.state.activeEdit})
      }
 
      deleteLog(log){
-          console.log("Delete Log ", log)
           fetch(`https://jdi-babystats.herokuapp.com/foodlog/${log.id}`, {
           // fetch(`http://localhost:3030/foodlog/${log.id}`, {
                method: 'DELETE',
@@ -43,7 +40,6 @@ export default class FoodDetails extends React.Component{
                     'Authorization': this.props.token
                })
           })
-          .then(console.log("Log successfully deleted!"))
      }
      
      displayFoodLogs(){

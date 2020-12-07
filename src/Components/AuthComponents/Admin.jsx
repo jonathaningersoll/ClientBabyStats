@@ -72,7 +72,6 @@ export default class Admin extends React.Component{
 
      deleteUser(e){
           e.preventDefault();
-          console.log(this.state.usernameToEdit, " will now be deleted");
           fetch(`https://jdi-babystats.herokuapp.com/user/${this.state.idToEdit}`, {
           // fetch(`http://localhost:3030/foodlog/${log.id}`, {
                method: 'DELETE',
@@ -130,7 +129,6 @@ export default class Admin extends React.Component{
                });
                this.getUsers();
           }).catch((err) => {
-               console.log(err);
           })
      }
 

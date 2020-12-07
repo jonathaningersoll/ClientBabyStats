@@ -18,7 +18,6 @@ export default class FoodStats extends React.Component{
 
      displayLastFewLogs(x){
           if(x){
-               console.log(x);
                return(
                x.reverse().slice(0,7).map(log =>(
                     <>

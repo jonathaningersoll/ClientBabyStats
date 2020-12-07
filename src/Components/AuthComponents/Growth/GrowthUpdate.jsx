@@ -31,7 +31,6 @@ export default class GrowthUpdate extends React.Component{
           e.preventDefault();
           let weight = parseInt(this.state.editLengthFt)*16 + parseInt(this.state.editLengthInches);
           let length = parseInt(this.state.editWeightLbs)*12 + parseInt(this.state.editWeightOz);
-          console.log("Edit Growth Function firing!",this.state);
           fetch(`https://jdi-babystats.herokuapp.com/growthlog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
@@ -48,7 +47,6 @@ export default class GrowthUpdate extends React.Component{
                     'Authorization': this.props.token
                })
           }).then((res) => {
-               console.log(res);
                res.json();
                this.props.off();
           }).catch((err) => {

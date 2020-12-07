@@ -23,7 +23,7 @@ export default class UserIndex extends React.Component{
                               <td>{user.role}</td>
                               <td>{user.email}</td>
                               <td>
-                                   <Button color="warning" onClick={() => {this.props.editUser(user); console.log("x");}}>Update</Button>
+                                   <Button color="warning" onClick={() => {this.props.editUser(user);}}>Update</Button>
                                    <Button color="danger" onClick={() => {this.props.stageDelete(user)}}>Delete</Button>
                               </td>
                          </tr>

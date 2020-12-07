@@ -24,7 +24,6 @@ export default class Login extends React.Component{
           }).then(
                (res) => res.json()
           ).then((data) => {
-               console.log("***********Login response data: ",data);
                this.props.updateToken(data.sessionToken);
                this.props.setRole(data.role);
           })
