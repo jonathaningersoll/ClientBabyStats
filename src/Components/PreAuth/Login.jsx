@@ -1,5 +1,6 @@
 import React from 'react';
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 export default class Login extends React.Component{
      constructor(props){
@@ -10,7 +11,7 @@ export default class Login extends React.Component{
 
      auth(e){
           e.preventDefault();
-          fetch('https://jdi-babystats.herokuapp.com/user/login',{
+          fetch(`${APIURL}/user/login`,{
           // fetch('http://localhost:3030/user/login',{
                method: 'POST',
                body: JSON.stringify({

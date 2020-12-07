@@ -13,6 +13,7 @@ import {
      ModalHeader
 } from 'reactstrap';
 import ChildIndex from './ChildIndex';
+import APIURL from '../../helpers/environment';
 
 export default class EditChild extends React.Component{
      constructor(props){
@@ -45,7 +46,7 @@ export default class EditChild extends React.Component{
      }
 
      deleteChild(child){
-          fetch(`https://jdi-babystats.herokuapp.com/child/${child.id}`, {
+          fetch(`${APIURL}/child/${child.id}`, {
           // fetch(`http://localhost:3030/foodlog/${log.id}`, {
                method: 'DELETE',
                headers: new Headers({
@@ -80,7 +81,7 @@ export default class EditChild extends React.Component{
 
      submitNewChildData(e){
           e.preventDefault();
-          fetch(`https://jdi-babystats.herokuapp.com/child/${this.state.idToEdit}`, {
+          fetch(`${APIURL}/child/${this.state.idToEdit}`, {
                method: 'PUT',
                body: JSON.stringify({
                     child: {
@@ -113,7 +114,7 @@ export default class EditChild extends React.Component{
      }
 
      getChildren(){
-          fetch('https://jdi-babystats.herokuapp.com/child/', {
+          fetch(`${APIURL}/child/`, {
                method: 'GET',
                headers: new Headers({
                     'Content-Type': 'application/json',

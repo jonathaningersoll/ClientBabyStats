@@ -6,6 +6,7 @@ import {
      Label,
      Button
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class GrowthUpdate extends React.Component{
      constructor(props){
@@ -31,7 +32,7 @@ export default class GrowthUpdate extends React.Component{
           e.preventDefault();
           let weight = parseInt(this.state.editLengthFt)*16 + parseInt(this.state.editLengthInches);
           let length = parseInt(this.state.editWeightLbs)*12 + parseInt(this.state.editWeightOz);
-          fetch(`https://jdi-babystats.herokuapp.com/growthlog/${this.props.log.id}`,{
+          fetch(`${APIURL}/growthlog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
                body: JSON.stringify({

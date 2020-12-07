@@ -8,6 +8,7 @@ import {
      Col,
      Row
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class Growth extends React.Component{
      constructor(props){
@@ -33,7 +34,7 @@ export default class Growth extends React.Component{
           let timeRecorded = this.state.newLogGrowthDate;
           let weight = parseInt(this.state.newLogWeightLbs)*16 + parseInt(this.state.newLogWeightOz);
           let length = parseInt(this.state.newLogLengthFt)*12 + parseInt(this.state.newLogLengthInches);
-          fetch('https://jdi-babystats.herokuapp.com/growthlog', {
+          fetch(`${APIURL}/growthlog`, {
                method: 'POST',
                body: JSON.stringify({
                     growthlog: {

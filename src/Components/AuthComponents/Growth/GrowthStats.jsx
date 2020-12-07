@@ -23,11 +23,6 @@ export default class GrowthStats extends React.Component{
                               <td>{log.weight}</td>
                          </tr>
                     </>
-                    // <Row>
-                    //      <Col className="stat-font">
-                    //           {log.check_date}
-                    //      </Col>
-                    // </Row>
                )))
           }else{return <div>No logs exist</div>}
      }

@@ -4,6 +4,7 @@ import {
      Button
 } from 'reactstrap';
 import FoodUpdate from './FoodUpdate'
+import APIURL from '../../helpers/environment';
 
 export default class FoodDetails extends React.Component{
      constructor(props){
@@ -32,7 +33,7 @@ export default class FoodDetails extends React.Component{
      }
 
      deleteLog(log){
-          fetch(`https://jdi-babystats.herokuapp.com/foodlog/${log.id}`, {
+          fetch(`${APIURL}/foodlog/${log.id}`, {
           // fetch(`http://localhost:3030/foodlog/${log.id}`, {
                method: 'DELETE',
                headers: new Headers({

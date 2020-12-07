@@ -6,6 +6,7 @@ import {
      Label,
      Button
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class FoodUpdate extends React.Component{
      constructor(props){
@@ -25,7 +26,7 @@ export default class FoodUpdate extends React.Component{
 
      editFoodLog(e){
           e.preventDefault();
-          fetch(`https://jdi-babystats.herokuapp.com/foodlog/${this.props.log.id}`,{
+          fetch(`${APIURL}/foodlog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
                body: JSON.stringify({

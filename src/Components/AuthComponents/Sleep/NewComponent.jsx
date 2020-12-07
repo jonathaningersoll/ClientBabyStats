@@ -6,6 +6,7 @@ import {
      Label,
      Button
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class NewComponent extends React.Component{
      constructor(props){
@@ -25,7 +26,7 @@ export default class NewComponent extends React.Component{
      editSleepLog(e){
           e.preventDefault();
 
-          fetch(`https://jdi-babystats.herokuapp.com/sleeplog/${this.props.log.id}`,{
+          fetch(`${APIURL}/sleeplog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
                body: JSON.stringify({
