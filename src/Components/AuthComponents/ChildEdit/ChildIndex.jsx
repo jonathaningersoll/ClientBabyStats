@@ -44,6 +44,7 @@ export default class childIndex extends React.Component{
                                    <th>Date of Birth</th>
                                    <th>Birth weight</th>
                                    <th>Birth Length</th>
+                                   <th>Options:</th>
                               </tr>
                          </thead>
                          <tbody>

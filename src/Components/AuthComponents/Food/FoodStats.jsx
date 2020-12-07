@@ -1,8 +1,4 @@
 import React from 'react';
-import {
-     Row,
-     Col
-} from 'reactstrap';
 
 export default class FoodStats extends React.Component{
      constructor(props) {
@@ -11,7 +7,13 @@ export default class FoodStats extends React.Component{
           this.state = {
           }
           this.displayLastFewLogs = this.displayLastFewLogs.bind(this);
+          this.niceDate = this.niceDate.bind(this);
 
+     }
+
+     niceDate(date){
+          var d = new Date(date).toUTCString();
+          return d;
      }
 
      displayLastFewLogs(x){
@@ -19,11 +21,18 @@ export default class FoodStats extends React.Component{
                console.log(x);
                return(
                x.reverse().slice(0,7).map(log =>(
-                    <Row>
-                         <Col className="stat-font">
-                              {log.time_fed}
-                         </Col>
-                    </Row>
+                    <>
+                         <tr className="dash-stat-text">
+                              <td>{log.solid}</td>
+                              <td>{log.Bottle}</td>
+                              <td></td>
+                         </tr>
+                    </>
+                    // <Row>
+                    //      <Col className="stat-font">
+                    //           {log.time_fed}
+                    //      </Col>
+                    // </Row>
                )))
           }else{return <div>No logs exist</div>}
      }
@@ -31,8 +40,23 @@ export default class FoodStats extends React.Component{
      render(){
           return(
                <>
-                    <div>
-                         <h3>Latest food stats </h3>
+               <div>
+                    <h3>Latest Food Stats</h3>
+               </div>
+                    <table>
+                         <thead>
+                              <tr>
+                                   <th>Meal Date</th>
+                                   <th>Meal Time</th>
+                                   <th>Served: </th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.foodlogs)}
+                         </tbody>
+                    </table>
+                    {/* <div>
+                         <h3>Latest food stats</h3>
                          <Row className="status-top-row">
                               <Col>
                                    Last meals:
@@ -42,7 +66,7 @@ export default class FoodStats extends React.Component{
                     </div>
                     <div class="stat-details">
                          <a href="details">Details</a>
-                    </div>     
+                    </div>      */}
                </>
           )
      }

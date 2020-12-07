@@ -71,8 +71,6 @@ export default class DiaperDetails extends React.Component{
      render(){
           return(
                <>
-                    DiaperDetails
-                    {console.log("Diaper Details begun...")}
                     {
                          !this.state.activeEdit ? 
                          <Table striped>
@@ -83,6 +81,7 @@ export default class DiaperDetails extends React.Component{
                                         <th>Dirty:</th>
                                         <th>Wet:</th>
                                         <th>Dry:</th>
+                                        <th>Options:</th>
                                    </tr>
                               </thead>
                               <tbody>

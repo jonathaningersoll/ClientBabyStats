@@ -1,15 +1,4 @@
 import React from 'react';
-import {
-     Row,
-     Col
-} from 'reactstrap';
-import {
-     BrowserRouter,
-     Link,
-     Route,
-     Switch
-} from 'react-router-dom';
-import SleepDetails from './SleepDetails';
 
 export default class SleepStats extends React.Component{
      constructor(props) {
@@ -18,29 +7,63 @@ export default class SleepStats extends React.Component{
           this.state = {
           }
           this.displayLastFewLogs = this.displayLastFewLogs.bind(this);
+          this.niceDate = this.niceDate.bind(this);
+          this.lengthOfSleep = this.lengthOfSleep.bind(this);
+     }
 
+     niceDate(date){
+          var d = new Date(date).toUTCString();
+          return d;
+     }
+
+     lengthOfSleep(start, stop){
+          var dateStart = new Date(start).getTime();
+          var dateStop = new Date(stop).getTime();
+          var time = dateStop - dateStart;
+          return Math.floor(time/1000/60);
      }
 
      displayLastFewLogs(x){
           if(x){
                return(
                x.reverse().slice(0,7).map(log =>(
-                    <Row>
-                         <Col className="stat-font">
-                              {log.sleep_start}
-                         </Col>
-                         <Col className="stat-font">
-                              {log.sleep_stop}
-                         </Col>
-                    </Row>
+                    <>
+                         <tr className="dash-stat-text">
+                              <td>{this.niceDate(log.sleep_start)}</td>
+                              <td>{this.lengthOfSleep(log.sleep_start, log.sleep_stop)}</td>
+                         </tr>
+                    </>
+
+                    // <Row>
+                    //      <Col className="stat-font">
+                    //           {log.sleep_start}
+                    //      </Col>
+                    //      <Col className="stat-font">
+                    //           {log.sleep_stop}
+                    //      </Col>
+                    // </Row>
                )))
           }else{return <div></div>}
      }
 
      render(){
           return(
-               <BrowserRouter>
-                    <Row className="status-top-row">
+               <>
+               <div>
+                    <h3>Sleep amount</h3>
+               </div>
+                    <table>
+                         <thead>
+                              <tr>
+                                   <th>Start time</th>
+                                   <th>Stop time</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
+                         </tbody>
+                    </table>
+                    {/* <Row className="status-top-row">
                          <Col>
                               Start Time:
                          </Col>
@@ -52,8 +75,8 @@ export default class SleepStats extends React.Component{
                     </Row>
                     <Row>
                          {!this.props.activeChild ? console.log("nothing here yet") : this.displayLastFewLogs(this.props.activeChild.sleeplogs)}
-                    </Row>
-               </BrowserRouter>
+                    </Row> */}
+               </>
           )
      }
 }

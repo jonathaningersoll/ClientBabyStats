@@ -72,8 +72,6 @@ export default class GrowthDetails extends React.Component{
      render(){
           return(
                <>
-                    GrowthDetails
-                    {console.log("Growth Details begun...")}
                     {
                          !this.state.activeEdit ? 
                          <Table striped>
@@ -83,6 +81,7 @@ export default class GrowthDetails extends React.Component{
                                         <th>Date checked:</th>
                                         <th>Length:</th>
                                         <th>Weight:</th>
+                                        <th>Options:</th>
                                    </tr>
                               </thead>
                               <tbody>

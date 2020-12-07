@@ -1,6 +1,7 @@
 import React from 'react';
 import {
      Row,
+     Col,
      Container,
      Dropdown,
      DropdownToggle,
@@ -67,12 +68,12 @@ export default class Home extends React.Component{
           );
      }
 
-     createChild(e) {                                                      // e parameter is passing an event, what event?
-          e.preventDefault();                                              // e could be onChange, onSubmit, onClick, etc...
+     createChild(e) {
+          e.preventDefault();
           let ncw = (this.state.lbs*16) + this.state.oz;
           let ncl = (this.state.ft*12) + this.state.inches;
 
-          // fetch('url',{init}).then( (response) => {})                      // the .thens exist solely to 
+          // fetch('url',{init}).then( (response) => {})
 
           fetch('https://jdi-babystats.herokuapp.com/child', {
           // fetch('http://localhost:3030/child', {
@@ -145,101 +146,107 @@ export default class Home extends React.Component{
                <BrowserRouter>
                     <Container>
                          <Row>
+                              <Col className="col-3">
                               {/* CHILD SELECTION DROPDOWN MENU */}
                               <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                   <DropdownToggle caret>
+                                   <DropdownToggle caret className="child-dropdown">
                                         {!this.state.activeChildData.name ? 'Select a child(Home)' : this.state.activeChildData.name}
                                    </DropdownToggle>
                                    <DropdownMenu>
                                         {!this.state.kids ? null : this.kidList()}
                                    </DropdownMenu>
                               </Dropdown>
+                              </Col>
 
                               {/* CREATE NEW CHILD MODAL */}
-                              <Button onClick={this.modalToggle}>Add Child</Button>
-                              <Modal isOpen={this.state.modal} toggle={this.modalToggle}>
-                                   <ModalHeader toggle={this.modalToggle}>Modal title</ModalHeader>
-                                   <ModalBody>
+                              <Col className="col-9">
+                                   <Button onClick={this.modalToggle}>Add Child</Button>
+                                   <Modal isOpen={this.state.modal} toggle={this.modalToggle}>
+                                        <ModalHeader toggle={this.modalToggle}>Modal title</ModalHeader>
+                                        <ModalBody>
 
-                              {/* CREATE NEW CHILD FORM */}
-                                        <Form onSubmit={this.createChild}>
-                                             <FormGroup>
-                                                  <Label htmlFor="newchildname">Name:</Label>
-                                                  <Input
-                                                       name="newchildname"
-                                                       placeholder="Name"
-                                                       onChange={(e) => this.setState({newChildName: e.target.value})}/>
-                                             </FormGroup>
-                                             <FormGroup>
-                                                  <Label htmlFor="newchilddob">Date of Birth:</Label>
-                                                  <Input
-                                                       type="date"
-                                                       name="date"
-                                                       id="exampleDate"
-                                                       placeholder="date placeholder"
-                                                       onChange={(e) => this.setState({newChildDob: e.target.value})}
-                                                  />
-                                             </FormGroup>
-                                             <FormGroup>
-                                                  <Label htmlFor="newchildbirthweightlbs">Birth Weight:</Label>
-                                                  <Row>
+                                   {/* CREATE NEW CHILD FORM */}
+                                             <Form onSubmit={this.createChild}>
+                                                  <FormGroup>
+                                                       <Label htmlFor="newchildname">Name:</Label>
                                                        <Input
-                                                            type="number"
-                                                            name="number"
-                                                            id="exampleNumber"
-                                                            placeholder="lbs"
-                                                            onChange={(e) => this.setState({lbs: e.target.value})}
-                                                       />lbs
-                                                  </Row>
-                                                  <Row>
+                                                            name="newchildname"
+                                                            placeholder="Name"
+                                                            onChange={(e) => this.setState({newChildName: e.target.value})}/>
+                                                  </FormGroup>
+                                                  <FormGroup>
+                                                       <Label htmlFor="newchilddob">Date of Birth:</Label>
                                                        <Input
-                                                            type="number"
-                                                            name="number"
-                                                            id="exampleNumber"
-                                                            placeholder="oz"
-                                                            onChange={(e) => this.setState({oz: e.target.value})}
-                                                       />oz
-                                                  </Row>
-                                             </FormGroup>
-                                             <FormGroup>
-                                                  <Label htmlFor="newchildbirthlengthft">Birth Length:</Label>
-                                                  <Row>
-                                                       <Input
-                                                            type="number"
-                                                            name="number"
-                                                            id="exampleNumber"
-                                                            placeholder="ft"
-                                                            onChange={(e) => this.setState({ft: e.target.value})}
-                                                       />feet
-                                                  </Row>
-                                                  <Row>
-                                                       <Input
-                                                            type="number"
-                                                            name="number"
-                                                            id="exampleNumber"
-                                                            placeholder="inches"
-                                                            onChange={(e) => this.setState({inches: e.target.value})}
-                                                       />inches
-                                                  </Row>
-                                             </FormGroup>
-                                             <ModalFooter>
-                                                  <Button type="submit" color="primary">Add Child</Button>
-                                                  <Button color="secondary" onClick={this.modalToggle}>Cancel</Button>
-                                             </ModalFooter>
-                                        </Form>
+                                                            type="date"
+                                                            name="date"
+                                                            id="exampleDate"
+                                                            placeholder="date placeholder"
+                                                            onChange={(e) => this.setState({newChildDob: e.target.value})}
+                                                       />
+                                                  </FormGroup>
+                                                  <FormGroup>
+                                                       <Label htmlFor="newchildbirthweightlbs">Birth Weight:</Label>
+                                                       <Row>
+                                                            <Input
+                                                                 type="number"
+                                                                 name="number"
+                                                                 id="exampleNumber"
+                                                                 placeholder="lbs"
+                                                                 onChange={(e) => this.setState({lbs: e.target.value})}
+                                                            />lbs
+                                                       </Row>
+                                                       <Row>
+                                                            <Input
+                                                                 type="number"
+                                                                 name="number"
+                                                                 id="exampleNumber"
+                                                                 placeholder="oz"
+                                                                 onChange={(e) => this.setState({oz: e.target.value})}
+                                                            />oz
+                                                       </Row>
+                                                  </FormGroup>
+                                                  <FormGroup>
+                                                       <Label htmlFor="newchildbirthlengthft">Birth Length:</Label>
+                                                       <Row>
+                                                            <Input
+                                                                 type="number"
+                                                                 name="number"
+                                                                 id="exampleNumber"
+                                                                 placeholder="ft"
+                                                                 onChange={(e) => this.setState({ft: e.target.value})}
+                                                            />feet
+                                                       </Row>
+                                                       <Row>
+                                                            <Input
+                                                                 type="number"
+                                                                 name="number"
+                                                                 id="exampleNumber"
+                                                                 placeholder="inches"
+                                                                 onChange={(e) => this.setState({inches: e.target.value})}
+                                                            />inches
+                                                       </Row>
+                                                  </FormGroup>
+                                                  <ModalFooter>
+                                                       <Button type="submit" color="primary">Add Child</Button>
+                                                       <Button color="secondary" onClick={this.modalToggle}>Cancel</Button>
+                                                  </ModalFooter>
+                                             </Form>
 
-                                   </ModalBody>
-                              </Modal>
-                              {!this.state.activeChildData.id ? <div></div> : 
-                                   <>
-                                        <Link to="/dashboard">Dashboard</Link>
-                                        <Link to="/details">View Details</Link>
-                                   </>
-                              }
+                                        </ModalBody>
+                                   </Modal>
+                                   {!this.state.activeChildData.id ? <div></div> : 
+                                        <>
+                                             
+                                             <Link to="/dashboard"><div className="kid-links">Dashboard</div></Link>
+                                             <Link to="/details"><div className="kid-links">View Details</div></Link>
+                                             
+                                        </>
+                                   }
+                              </Col>
                          </Row>
                     </Container>
 
-                    <Container className="themed-container" fluid="xl b-red">
+                    <Container className="themed-container">
                          <Row>
                               <Switch>
                                    <Route exact path="/dashboard">

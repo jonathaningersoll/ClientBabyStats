@@ -24,7 +24,7 @@ export default class Dashboard extends React.Component{
      render(){
 
           return(
-               <div>
+               <>
                     <Row className="dashboard">
                          <h1>{!this.props.activeChild.name ? 'Dashboard' : this.props.activeChild.name}</h1>
                     </Row>
@@ -41,7 +41,7 @@ export default class Dashboard extends React.Component{
                     <Row className="dashboard-stat">
                          <GrowthStats activeChild={this.props.activeChild} />
                     </Row>
-               </div>
+               </>
           )
      }
 }
