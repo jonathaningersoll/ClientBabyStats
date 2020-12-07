@@ -4,6 +4,7 @@ import {
      Button
 } from 'reactstrap';
 import GrowthUpdate from './GrowthUpdate';
+import APIURL from '../../helpers/environment';
 
 export default class GrowthDetails extends React.Component{
      constructor(props){
@@ -34,7 +35,7 @@ export default class GrowthDetails extends React.Component{
      }
 
      deleteLog(log){
-          fetch(`https://jdi-babystats.herokuapp.com/growthlog/${log.id}`, {
+          fetch(`${APIURL}/growthlog/${log.id}`, {
           // fetch(`http://localhost:3030/foodlog/${log.id}`, {
                method: 'DELETE',
                headers: new Headers({

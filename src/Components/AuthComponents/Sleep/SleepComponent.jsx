@@ -6,6 +6,7 @@ import {
      Input,
      Button,
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class Sleep extends React.Component{
      constructor(props){
@@ -34,7 +35,7 @@ export default class Sleep extends React.Component{
         e.preventDefault();
         let logStart = `${this.state.newLogStartDate}:${this.state.newLogStart}:00`;
         let logStop = `${this.state.newLogStopDate}:${this.state.newLogStop}:00`;
-        fetch('https://jdi-babystats.herokuapp.com/sleeplog', {
+        fetch(`${APIURL}/sleeplog`, {
             method: 'POST',
             body: JSON.stringify({
                 sleeplog: {

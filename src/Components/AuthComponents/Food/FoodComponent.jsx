@@ -6,6 +6,7 @@ import {
      Input,
      Button,
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class Food extends React.Component{
      constructor(props){
@@ -29,7 +30,7 @@ export default class Food extends React.Component{
     logMeal(e){
         e.preventDefault();
         let timeFed = (this.state.newLogDayFed + ":" + this.state.newLogTimeFed);
-        fetch('https://jdi-babystats.herokuapp.com/foodlog', {
+        fetch(`${APIURL}/foodlog`, {
             method: 'POST',
             body: JSON.stringify({
                 foodlog: {

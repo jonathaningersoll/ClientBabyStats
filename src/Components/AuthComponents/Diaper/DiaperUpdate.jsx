@@ -6,6 +6,7 @@ import {
      Label,
      Button
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class DiaperUpdate extends React.Component{
      constructor(props){
@@ -29,7 +30,7 @@ export default class DiaperUpdate extends React.Component{
 
      editDiaperLog(e){
           e.preventDefault();
-          fetch(`https://jdi-babystats.herokuapp.com/diaperlog/${this.props.log.id}`,{
+          fetch(`${APIURL}/diaperlog/${this.props.log.id}`,{
           // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
                body: JSON.stringify({

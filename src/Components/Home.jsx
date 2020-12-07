@@ -25,6 +25,7 @@ import{
 } from 'react-router-dom';
 import MainDashboard from './MainDashboard';
 import Details from './AuthComponents/Details';
+import APIURL from './helpers/environment';
 
 // (1) const Home = (props) => {
 export default class Home extends React.Component{
@@ -75,7 +76,7 @@ export default class Home extends React.Component{
 
           // fetch('url',{init}).then( (response) => {})
 
-          fetch('https://jdi-babystats.herokuapp.com/child', {
+          fetch(`${APIURL}/child`, {
           // fetch('http://localhost:3030/child', {
                method: 'POST',
                body: JSON.stringify({
@@ -97,7 +98,7 @@ export default class Home extends React.Component{
      }
 
      getChild(id){
-          fetch(`https://jdi-babystats.herokuapp.com/child/${id}`, {
+          fetch(`${APIURL}/child/${id}`, {
           // fetch(`http://localhost:3030/child/${id}`, {
                method:'GET',
                headers: new Headers({
@@ -111,7 +112,7 @@ export default class Home extends React.Component{
      }
 
      getChildren() {
-          fetch('https://jdi-babystats.herokuapp.com/child', {
+          fetch(`${APIURL}/child`, {
           // fetch('http://localhost:3030/child', {
                method: 'GET',
                headers: new Headers ({

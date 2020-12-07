@@ -4,6 +4,7 @@ import {
      Button
 } from 'reactstrap';
 import NewComponent from './NewComponent'
+import APIURL from '../../helpers/environment';
 
 export default class SleepDetails extends React.Component{
      constructor(props){
@@ -32,7 +33,7 @@ export default class SleepDetails extends React.Component{
      }
 
      deleteLog(log){
-          fetch(`https://jdi-babystats.herokuapp.com/sleeplog/${log.id}`, {
+          fetch(`${APIURL}/sleeplog/${log.id}`, {
           // fetch(`http://localhost:3030/sleeplog/${log.id}`, {
                method: 'DELETE',
                headers: new Headers({

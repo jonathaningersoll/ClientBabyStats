@@ -4,6 +4,7 @@ import {
      Button
 } from 'reactstrap';
 import DiaperUpdate from './DiaperUpdate';
+import APIURL from '../../helpers/environment';
 
 export default class DiaperDetails extends React.Component{
      constructor(props){
@@ -32,7 +33,7 @@ export default class DiaperDetails extends React.Component{
      }
 
      deleteLog(log){
-          fetch(`https://jdi-babystats.herokuapp.com/diaperlog/${log.id}`, {
+          fetch(`${APIURL}/diaperlog/${log.id}`, {
           // fetch(`http://localhost:3030/foodlog/${log.id}`, {
                method: 'DELETE',
                headers: new Headers({

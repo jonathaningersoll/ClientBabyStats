@@ -13,6 +13,7 @@ import {
      ModalHeader
 } from 'reactstrap';
 import UserIndex from './UserComponents/UserIndex';
+import APIURL from '../helpers/environment';
 
 export default class Admin extends React.Component{
      constructor(props){
@@ -72,7 +73,7 @@ export default class Admin extends React.Component{
 
      deleteUser(e){
           e.preventDefault();
-          fetch(`https://jdi-babystats.herokuapp.com/user/${this.state.idToEdit}`, {
+          fetch(`${APIURL}/user/${this.state.idToEdit}`, {
           // fetch(`http://localhost:3030/foodlog/${log.id}`, {
                method: 'DELETE',
                headers: new Headers({
@@ -103,7 +104,7 @@ export default class Admin extends React.Component{
 
      submitNewUserData(e){
           e.preventDefault();
-          fetch(`https://jdi-babystats.herokuapp.com/user/update/${this.state.idToEdit}`, {
+          fetch(`${APIURL}/user/update/${this.state.idToEdit}`, {
                method: 'PUT',
                body: JSON.stringify({
                     user: {
@@ -133,7 +134,7 @@ export default class Admin extends React.Component{
      }
 
      getUsers(){
-          fetch('https://jdi-babystats.herokuapp.com/user/', {
+          fetch(`${APIURL}/user/`, {
                method: 'GET',
                headers: new Headers({
                     'Content-Type': 'application/json',

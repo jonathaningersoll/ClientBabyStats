@@ -8,6 +8,7 @@ import {
      Col,
      Row
 } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class Diaper extends React.Component{
      constructor(props){
@@ -36,7 +37,7 @@ export default class Diaper extends React.Component{
           e.preventDefault();
           let timeChanged = (this.state.newLogDiaperDay + ":" + this.state.newLogDiaperTime);
 
-          fetch('https://jdi-babystats.herokuapp.com/diaperlog', {
+          fetch(`${APIURL}/diaperlog`, {
                method: 'POST',
                body: JSON.stringify({
                     diaperlog: {
