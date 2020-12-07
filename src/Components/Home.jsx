@@ -162,7 +162,7 @@ export default class Home extends React.Component{
                               <Col className="col-9">
                                    <Button onClick={this.modalToggle}>Add Child</Button>
                                    <Modal isOpen={this.state.modal} toggle={this.modalToggle}>
-                                        <ModalHeader toggle={this.modalToggle}>Modal title</ModalHeader>
+                                        <ModalHeader toggle={this.modalToggle}>Add a new Child</ModalHeader>
                                         <ModalBody>
 
                                    {/* CREATE NEW CHILD FORM */}
