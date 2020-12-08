@@ -20,3 +20,13 @@ and the project will be built and begin running at [http://localhost:3000](http:
 
 ## Construction:
 This client is built with REACT, bootstrap, JavaScript, CSS, and REACT Router to connect to the BabyStats API.
+
+# Contact me:
+Creator:
+
+* jonathan.ingersoll@gmail.com
+
+Project Repository: https://github.com/jonathaningersoll/ClientBabyStats
+
+# Acknowledgements:
+Special thanks to [Eleven Fifty Academy](https://elevenfifty.org/) and their team of instructors and learning assistants as well as my own teammates and classmates for assisting in completing this project.
