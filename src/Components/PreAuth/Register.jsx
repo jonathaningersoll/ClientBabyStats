@@ -20,7 +20,6 @@ export default class Register extends React.Component{
      reg(e){
           e.preventDefault();
           fetch(`${APIURL}/user/register`, {
-               // fetch("http://localhost:3030/user/register", {
                method: 'POST',
                body: JSON.stringify({
                     user:{
@@ -43,7 +42,7 @@ export default class Register extends React.Component{
      render(){
           return(
                <>
-                    <h1>Registration</h1>
+                    <h2>Register</h2>
                     <Form onSubmit={this.reg}>
                          <FormGroup>
                               <Label htmlFor="username">Username</Label>
