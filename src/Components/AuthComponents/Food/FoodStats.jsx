@@ -22,16 +22,11 @@ export default class FoodStats extends React.Component{
                x.reverse().slice(0,7).map(log =>(
                     <>
                          <tr className="dash-stat-text">
-                              <td>{log.solid}</td>
+                              <td>{log.time_fed}</td>
                               <td>{log.Bottle}</td>
                               <td></td>
                          </tr>
                     </>
-                    // <Row>
-                    //      <Col className="stat-font">
-                    //           {log.time_fed}
-                    //      </Col>
-                    // </Row>
                )))
           }else{return <div>No logs exist</div>}
      }
@@ -46,7 +41,6 @@ export default class FoodStats extends React.Component{
                          <thead>
                               <tr>
                                    <th>Meal Date</th>
-                                   <th>Meal Time</th>
                                    <th>Served: </th>
                               </tr>
                          </thead>
