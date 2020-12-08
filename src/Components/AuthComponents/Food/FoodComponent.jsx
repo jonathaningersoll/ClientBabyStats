@@ -90,7 +90,7 @@ export default class Food extends React.Component{
                                     id="ounces"
                                 />
                         </FormGroup>
-                        <FormGroup check>
+                        <FormGroup>
                             <Label for="solid">Solid Food:</Label>
                                 <Input
                                     type="text"
@@ -100,8 +100,8 @@ export default class Food extends React.Component{
                                     id="solid"
                                 />
                         </FormGroup>
-                            <Button type="submit" color="primary">Log Meal</Button>
-                            <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
+                        <Button type="submit" color="primary">Log Meal</Button>
+                        <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
                 </Form>
             </div>
         )
