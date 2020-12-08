@@ -13,11 +13,12 @@ code {
 }
 
 .auth-container {
-  border: 1px solid skyblue;
+  border-top: 8px solid #21A0A0;
 }
 
 .register {
-  background-color: salmon;
+  background-color: #E53D00;
+  padding: 20px;
 }
 
 /* DASHBOARD STYLES */

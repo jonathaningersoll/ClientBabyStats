@@ -12,12 +12,12 @@ export default class Authorize extends React.Component{
           return(
                <Container className="auth-container">
                     <Row>
-                         <Col md="6" className="login-col">
+                         <Col md="4" className="login-col">
                               <Login updateToken={this.props.updateToken} setRole={this.props.setRole} />
                          </Col>
                     </Row>
                     <Row>
-                         <Col md="6" className="register">
+                         <Col md="4" className="register">
                               <Register updateToken={this.props.updateToken} />
                          </Col>
                     </Row>
