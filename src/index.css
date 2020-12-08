@@ -19,10 +19,21 @@ code {
 .login-col{
   background-color: #E53D00;
   padding: 20px;
+  color:  #FCFFF7;
 }
+.login-col btn{
+  background-color: #21A0A0;
+  border-color: #21A0A0;
+}
+
 .register {
   background-color: #E53D00;
   padding: 20px;
+  color:  #FCFFF7;
+}
+.register btn{
+  background-color: #21A0A0;
+  border-color: #21A0A0;
 }
 
 /* DASHBOARD STYLES */
