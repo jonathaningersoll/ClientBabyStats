@@ -130,3 +130,14 @@ label{
   color: #FCFFF7;
   text-decoration: none;
 }
+
+.btn-warning{
+  background-color: #FFE900;
+  border-color: #FFE900;
+}
+
+.btn-danger{
+  background-color: #E53D00;
+  border-color: #E53D00;
+  color: #FCFFF7;
+}
