@@ -16,6 +16,10 @@ code {
   border-top: 8px solid #21A0A0;
 }
 
+.login-col{
+  background-color: #E53D00;
+  padding: 20px;
+}
 .register {
   background-color: #E53D00;
   padding: 20px;
