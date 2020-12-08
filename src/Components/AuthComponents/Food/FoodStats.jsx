@@ -23,7 +23,7 @@ export default class FoodStats extends React.Component{
                     <>
                          <tr className="dash-stat-text">
                               <td>{log.time_fed}</td>
-                              <td>{log.Bottle}</td>
+                              <td>{log.solid}</td>
                               <td></td>
                          </tr>
                     </>
