@@ -51,8 +51,8 @@ export default class NewComponent extends React.Component{
      render(){
           return(
                <>
-               <h1>Edit Sleep Log: {this.props.log.id}</h1>
-               <Form onSubmit={this.editSleepLog}>
+                    <h1>Edit Sleep Log: {this.props.log.id}</h1>
+                    <Form onSubmit={this.editSleepLog}>
                     <FormGroup>
                          <Label htmlFor="start_day">Sleep Start:</Label>
                          <Input
@@ -61,7 +61,7 @@ export default class NewComponent extends React.Component{
                               onChange={(e) => this.setState({editStartDate: e.target.value})}/>
                          </FormGroup>
                     <FormGroup>
-                         <Label htmlFor="newchildname"></Label>
+                         <Label htmlFor="start"></Label>
                          <Input
                               type="time"
                               name="start"

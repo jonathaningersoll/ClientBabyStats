@@ -34,7 +34,6 @@ export default class SleepDetails extends React.Component{
 
      deleteLog(log){
           fetch(`${APIURL}/sleeplog/${log.id}`, {
-          // fetch(`http://localhost:3030/sleeplog/${log.id}`, {
                method: 'DELETE',
                headers: new Headers({
                     'Content-Type': 'application/json',
