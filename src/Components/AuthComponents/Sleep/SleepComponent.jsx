@@ -59,7 +59,7 @@ export default class Sleep extends React.Component{
                 <div onClick={this.toggleTile} className="tile-button">Log Sleep</div>
             </div>
             :
-            <div>
+            <div className="open-log">
                 <Form onSubmit={this.logSleep}>
                     <FormGroup>
                         <Label htmlFor="start_day">Sleep Start:</Label>
