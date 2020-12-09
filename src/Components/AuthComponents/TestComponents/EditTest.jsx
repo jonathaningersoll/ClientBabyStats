@@ -120,8 +120,9 @@ export default class EditTest extends React.Component{
      //      idToEdit: this.props.child.foodlog.id
      // })
 
-     getLogs(){
-          fetch(`${APIURL}/child/`, {
+     getLogs(id){
+          console.log('getLogs rendered')
+          fetch(`${APIURL}/child/:${id}`, {
                method: 'GET',
                headers: new Headers({
                     'Content-Type': 'application/json',
@@ -140,7 +141,8 @@ export default class EditTest extends React.Component{
           return(
                <Container>
                     <Row>
-                         {this.getLogs()}
+                         {console.log('EditTest rendered')}
+                         {this.getLogs(this.props.child.id)}
                     </Row>
                     <Modal isOpen={this.state.editModalOn} toggle={this.turnEditOff}>
                          <ModalBody>

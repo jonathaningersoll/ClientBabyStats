@@ -37,6 +37,7 @@ export default class TestIndex extends React.Component{
           return(
                <>
                     <Table striped>
+                         {console.log('TestIndex rendered')}
                          <thead>
                               <tr>
                                    <th>Meal Time</th>
