@@ -140,7 +140,7 @@ export default class EditTest extends React.Component{
           return(
                <Container>
                     <Row>
-                         {this.getLogs}
+                         {this.getLogs()}
                     </Row>
                     <Modal isOpen={this.state.editModalOn} toggle={this.turnEditOff}>
                          <ModalBody>
