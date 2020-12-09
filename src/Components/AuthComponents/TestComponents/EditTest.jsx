@@ -135,9 +135,10 @@ export default class EditTest extends React.Component{
           .then((child) => {
                this.setState({logList: child.foodlogs});
           })
-          .then(() => {
-               <TestIndex logList={this.state.logList} deleteLog={this.deleteLog} editLog={this.editLog} />
-          })
+     }
+
+     componentDidMount(){
+          this.getLogs(this.props.child.id)
      }
 
      render(){
@@ -145,7 +146,7 @@ export default class EditTest extends React.Component{
                <Container>
                     <Row>
                          {console.log('EditTest rendered')}
-                         {this.getLogs(this.props.child.id)}
+                         <TestIndex logList={this.state.logList} deleteLog={this.deleteLog} editLog={this.editLog} />
                     </Row>
                     <Modal isOpen={this.state.editModalOn} toggle={this.turnEditOff}>
                          <ModalBody>
