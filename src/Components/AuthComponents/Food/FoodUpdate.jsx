@@ -27,7 +27,6 @@ export default class FoodUpdate extends React.Component{
      editFoodLog(e){
           e.preventDefault();
           fetch(`${APIURL}/foodlog/${this.props.log.id}`,{
-          // fetch(`http://localhost:3030/sleeplog/${this.props.log.id}`,{
                method: 'PUT',
                body: JSON.stringify({
                     foodlog: {
@@ -54,39 +53,37 @@ export default class FoodUpdate extends React.Component{
                <h1>Edit Food Log: {this.props.log.id}</h1>
                <Form onSubmit={this.editFoodLog}>
                     <FormGroup>
-                         <Label htmlFor="time_fed" className="tile-label">Time fed:</Label>
+                         <Label htmlFor="time_fed">Time fed:</Label>
                          <Input
                               type="date"
                               name="time_fed"
-                              className="time-input"
                               onChange={(e) => this.setState({editTimeFed: e.target.value})}/>
                          </FormGroup>
                     <FormGroup>
-                         <Label htmlFor="date_fed" className="tile-label">Day:</Label>
+                         <Label htmlFor="date_fed">Day:</Label>
                          <Input
                               type="time"
                               name="date_fed"
                               placeholder="HH:MM"
-                              className="time-input"
                               onChange={(e) => this.setState({editDateFed: e.target.value})}/>
                     </FormGroup>
-                    <FormGroup check inline>Breast
-                         <Label htmlFor="breast" className="tile-label">:</Label>
+                    <FormGroup check inline>
+                         <Label htmlFor="breast">Breast:</Label>
                          <Input
                               type="checkbox"
                               name="breast"
                               onChange={(e) => this.setState({editBreast: e.target.value})}/>
                     </FormGroup>
-                    <FormGroup>Bottle:
-                         <Label htmlFor="newchilddob" className="tile-label"></Label>
+                    <FormGroup>
+                         <Label htmlFor="bottle">Bottle:</Label>
                          <Input
                               type="number"
                               name="bottle"
                               placeholder="Oz"
                               onChange={(e) => this.setState({editBottle: e.target.value})}/>
                     </FormGroup>
-                    <FormGroup check inline>Solid:
-                         <Label htmlFor="solid" className="tile-label"></Label>
+                    <FormGroup check inline>
+                         <Label htmlFor="solid">Solid:</Label>
                          <Input
                               type="text"
                               name="solid"
@@ -94,8 +91,8 @@ export default class FoodUpdate extends React.Component{
                               onChange={(e) => this.setState({editSolid: e.target.value})}/>
                     </FormGroup>
                          <Button type="submit" color="primary">Edit Log</Button>
-               </Form>
                          <Button onClick={this.props.off}>Cancel</Button>
+               </Form>
                </>
           )
      }

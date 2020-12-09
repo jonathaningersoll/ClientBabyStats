@@ -51,27 +51,24 @@ export default class NewComponent extends React.Component{
      render(){
           return(
                <>
-               <h1>Edit Sleep Log: {this.props.log.id}</h1>
-               <Form onSubmit={this.editSleepLog}>
+                    <h1>Edit Sleep Log: {this.props.log.id}</h1>
+                    <Form onSubmit={this.editSleepLog}>
                     <FormGroup>
-                         <Label htmlFor="start_day" className="tile-label">Sleep Start:</Label>
+                         <Label htmlFor="start_day">Sleep Start:</Label>
                          <Input
                               type="date"
                               name="start_day"
-                              className="time-input"
                               onChange={(e) => this.setState({editStartDate: e.target.value})}/>
                          </FormGroup>
                     <FormGroup>
-                         <Label htmlFor="newchildname" className="tile-label"></Label>
+                         <Label htmlFor="start"></Label>
                          <Input
                               type="time"
                               name="start"
-                              placeholder="HH:MM"
-                              className="time-input"
                               onChange={(e) => this.setState({editStartTime: e.target.value})}/>
                     </FormGroup>
                     <FormGroup>
-                         <Label htmlFor="end_day" className="tile-label">Sleep Stop:</Label>
+                         <Label htmlFor="end_day">Sleep Stop:</Label>
                          <Input
                               type="date"
                               name="end_day"
@@ -79,17 +76,15 @@ export default class NewComponent extends React.Component{
                               onChange={(e) => this.setState({editStopDate: e.target.value})}/>
                     </FormGroup>
                     <FormGroup>
-                         <Label htmlFor="newchilddob" className="tile-label"></Label>
+                         <Label htmlFor="newchilddob"></Label>
                          <Input
                               type="time"
                               name="stop"
-                              className="time-input"
-                              placeholder="date placeholder"
                               onChange={(e) => this.setState({editStopTime: e.target.value})}/>
                     </FormGroup>
                          <Button type="submit" color="primary">Edit Log</Button>
-               </Form>
                          <Button onClick={this.props.off}>Cancel</Button>
+                    </Form>
                </>
           )
      }

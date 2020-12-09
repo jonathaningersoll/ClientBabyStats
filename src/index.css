@@ -13,11 +13,27 @@ code {
 }
 
 .auth-container {
-  border: 1px solid skyblue;
+  border-top: 8px solid #21A0A0;
+}
+
+.login-col{
+  background-color: #E53D00;
+  padding: 20px;
+  color:  #FCFFF7;
+}
+.login-col btn{
+  background-color: #21A0A0;
+  border-color: #21A0A0;
 }
 
 .register {
-  background-color: salmon;
+  background-color: #E53D00;
+  padding: 20px;
+  color:  #FCFFF7;
+}
+.register btn{
+  background-color: #21A0A0;
+  border-color: #21A0A0;
 }
 
 /* DASHBOARD STYLES */
@@ -25,10 +41,10 @@ code {
   width: 100px;
 }
 
-.dashboard {
+/* .dashboard {
   margin: 0px;
   padding: 0px;
-}
+} */
 
 .dashboard-stat{
   border-top: 8px solid #21A0A0;
@@ -129,4 +145,23 @@ label{
   background-color: #21A0A0;
   color: #FCFFF7;
   text-decoration: none;
+}
+
+
+/* PORTAL STYLES */
+.btn-warning{
+  background-color: #FFE900;
+  border-color: #FFE900;
+}
+
+.btn-danger{
+  background-color: #E53D00;
+  border-color: #E53D00;
+  color: #FCFFF7;
+}
+
+.open-log{
+  background-color: #21A0A0;
+  padding: 10px;
+  color: #FCFFF7;
 }

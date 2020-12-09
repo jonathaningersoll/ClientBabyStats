@@ -33,7 +33,7 @@ export default class Login extends React.Component{
      render(){
           return(
                <>
-                    <h1>Login here!</h1>
+                    <h2>Log in to BabyStats</h2>
                     <Form onSubmit={this.auth}>
                          <FormGroup>
                               <Label htmlFor="username">Username</Label>

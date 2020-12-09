@@ -59,40 +59,34 @@ export default class Sleep extends React.Component{
                 <div onClick={this.toggleTile} className="tile-button">Log Sleep</div>
             </div>
             :
-            <div>
+            <div className="open-log">
                 <Form onSubmit={this.logSleep}>
                     <FormGroup>
-                        <Label htmlFor="start_day" className="tile-label">Sleep Start:</Label>
+                        <Label htmlFor="start_day">Sleep Start:</Label>
                         <Input
                             type="date"
                             name="start_day"
-                            className="time-input"
                             onChange={(e) => this.setState({newLogStartDate: e.target.value})}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label htmlFor="newchildname" className="tile-label"></Label>
+                        <Label htmlFor="start"></Label>
                         <Input
                             type="time"
                             name="start"
-                            placeholder="HH:MM"
-                            className="time-input"
                             onChange={(e) => this.setState({newLogStart: e.target.value})}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label htmlFor="end_day" className="tile-label">Sleep Stop:</Label>
+                        <Label htmlFor="end_day">Sleep Stop:</Label>
                         <Input
                             type="date"
                             name="end_day"
-                            className="time-input"
                             onChange={(e) => this.setState({newLogStopDate: e.target.value})}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label htmlFor="newchilddob" className="tile-label"></Label>
+                        <Label htmlFor="stop"></Label>
                         <Input
                             type="time"
                             name="stop"
-                            className="time-input"
-                            placeholder="date placeholder"
                             onChange={(e) => this.setState({newLogStop: e.target.value})}
                         />
                     </FormGroup>

@@ -17,7 +17,7 @@ export default class Sitebar extends React.Component{
           return(
                <Navbar color="light" light expand="md" className="navigator">
                     <Link to="/">
-                         <NavbarBrand>Home</NavbarBrand>
+                         <NavbarBrand>BabyStats</NavbarBrand>
                     </Link>
                     {
                          this.props.token ? 

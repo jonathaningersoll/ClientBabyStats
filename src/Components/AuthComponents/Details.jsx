@@ -13,7 +13,7 @@ import SleepDetails from './Sleep/SleepDetails';
 import FoodDetails from './Food/FoodDetails';
 import DiaperDetails from './Diaper/DiaperDetails';
 import GrowthDetails from './Growth/GrowthDetails';
-import EditChild from './ChildEdit/EditChild'
+import EditChild from './ChildEdit/EditChild';
 
 export default class Details extends React.Component{
 
@@ -45,7 +45,7 @@ export default class Details extends React.Component{
                                    <Row className="detail-button">
                                         Edit Child
                                    </Row>
-                              </Link>  
+                              </Link>
                          </Col>
                          
                          <Col className="col-9 details-data">

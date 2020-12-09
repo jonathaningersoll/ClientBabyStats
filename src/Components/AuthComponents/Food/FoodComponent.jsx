@@ -56,14 +56,13 @@ export default class Food extends React.Component{
                 <div onClick={this.toggleTile} className="tile-button">Log Meal</div>
             </div>
             :
-            <div>
+            <div className="open-log">
                 <Form onSubmit={this.logMeal}>
                         <FormGroup>
                             <Label htmlFor="day-fed" className="tile-label">Day Fed:</Label>
                             <Input
                                 type="date"
                                 name="day-fed"
-                                className="time-input"
                                 onChange={(e) => this.setState({newLogDayFed: e.target.value})}/>
                         </FormGroup>
                         <FormGroup>
@@ -71,8 +70,6 @@ export default class Food extends React.Component{
                             <Input
                                 type="time"
                                 name="time-fed"
-                                placeholder="HH:MM"
-                                className="time-input"
                                 onChange={(e) => this.setState({newLogTimeFed: e.target.value})}/>
                         </FormGroup>
                         <FormGroup check inline>Breast:
@@ -84,19 +81,17 @@ export default class Food extends React.Component{
                                 />
                             </Label>
                         </FormGroup>
-                        <FormGroup check inline>Bottle(oz):
-                            <Label for="ounces" className="tile-label">
+                        <FormGroup check inline>
+                            <Label for="ounces">Bottle(oz):</Label>
                                 <Input
                                     type="number"
                                     name="ounces"
-                                    placeholder="oz"
                                     onChange={(e) => this.setState({newLogBottle: e.target.value})}
                                     id="ounces"
                                 />
-                            </Label>
                         </FormGroup>
-                        <FormGroup check>
-                            <Label for="solid" className="tile-label">
+                        <FormGroup>
+                            <Label for="solid">Solid Food:</Label>
                                 <Input
                                     type="text"
                                     name="solid"
@@ -104,10 +99,9 @@ export default class Food extends React.Component{
                                     onChange={(e) => this.setState({newLogSolid: e.target.value})}
                                     id="solid"
                                 />
-                            </Label>
                         </FormGroup>
-                            <Button type="submit" color="primary">Log Meal</Button>
-                            <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
+                        <Button type="submit" color="primary">Log Meal</Button>
+                        <Button color="secondary" onClick={this.toggleTile}>Cancel</Button>
                 </Form>
             </div>
         )

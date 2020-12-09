@@ -63,43 +63,28 @@ export default class Diaper extends React.Component{
                     <div onClick={this.toggleTile} className="tile-button">Log Diaper</div>
                </div>
                :
-               <div>
+               <div className="open-log">
                     <Form onSubmit={this.logDiaper}>
                          <FormGroup>
-                              <Row>
-                                   <Col>
-                                        <Label htmlFor="day-checked" className="tile-label">Day Checked:</Label>
-                                   </Col>
-                                   <Col>
-                                        <Input
-                                             type="date"
-                                             name="day-checked"
-                                             className="time-input"
-                                             onChange={(e) => this.setState({newLogDiaperDay: e.target.value})}
-                                        />
-                                   </Col>
-                              </Row>
+                              <Label htmlFor="day-checked">Day Checked:</Label>
+                                   <Input
+                                        type="date"
+                                        name="day-checked"
+                                        onChange={(e) => this.setState({newLogDiaperDay: e.target.value})}
+                                   />
                          </FormGroup>
                          <FormGroup>
-                             <Row>
-                                   <Col>
-                                        <Label htmlFor="time-checked" className="tile-label">Time Checked:</Label>
-                                   </Col>
-                                   <Col>
-                                        <Input
-                                             type="time"
-                                             name="time-checked"
-                                             placeholder="HH:MM"
-                                             className="time-input"
-                                             onChange={(e) => this.setState({newLogDiaperTime: e.target.value})}
-                                        />
-                                   </Col>
-                             </Row>
+                              <Label htmlFor="time-checked">Time Checked:</Label>
+                                   <Input
+                                        type="time"
+                                        name="time-checked"
+                                        onChange={(e) => this.setState({newLogDiaperTime: e.target.value})}
+                                   />
                          </FormGroup>
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label check htmlFor="wet" className="tile-label">Wet:</Label>
+                                        <Label check htmlFor="wet">Wet:</Label>
                                    </Col>
                                    <Col>
                                         <Input
@@ -113,7 +98,7 @@ export default class Diaper extends React.Component{
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label check htmlFor="dry" className="tile-label">Dry:</Label>
+                                        <Label check htmlFor="dry">Dry:</Label>
                                    </Col>
                                    <Col>
                                         <Input
@@ -127,7 +112,7 @@ export default class Diaper extends React.Component{
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label check htmlFor="dirty" className="tile-label">Dirty:</Label>
+                                        <Label check htmlFor="dirty">Dirty:</Label>
                                    </Col>
                                    <Col>
                                         <Input

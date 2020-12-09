@@ -59,18 +59,17 @@ export default class Growth extends React.Component{
                     <div onClick={this.toggleTile} className="tile-button">Log Growth</div>
                </div>
                :
-               <div>
+               <div className="open-log">
                     <Form onSubmit={this.logGrowth}>
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label htmlFor="day-checked" className="tile-label">Day Checked:</Label>
+                                        <Label htmlFor="day-checked">Day Checked:</Label>
                                    </Col>
                                    <Col>
                                         <Input
                                              type="date"
                                              name="day-checked"
-                                             className="time-input"
                                              onChange={(e) => this.setState({newLogGrowthDate: e.target.value})}
                                         />
                                    </Col>
@@ -79,7 +78,7 @@ export default class Growth extends React.Component{
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label check htmlFor="lengthft" className="tile-label">Length (ft):</Label>
+                                        <Label check htmlFor="lengthft">Length (ft):</Label>
                                    </Col>
                                    <Col>
                                         <Input
@@ -93,7 +92,7 @@ export default class Growth extends React.Component{
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label check htmlFor="lengthin" className="tile-label">Length (in):</Label>
+                                        <Label check htmlFor="lengthin">Length (in):</Label>
                                    </Col>
                                    <Col>
                                         <Input
@@ -107,7 +106,7 @@ export default class Growth extends React.Component{
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label check htmlFor="weightlbs" className="tile-label">Weight (lbs):</Label>
+                                        <Label check htmlFor="weightlbs">Weight (lbs):</Label>
                                    </Col>
                                    <Col>
                                         <Input
@@ -121,7 +120,7 @@ export default class Growth extends React.Component{
                          <FormGroup>
                               <Row>
                                    <Col>
-                                        <Label check htmlFor="weightoz" className="tile-label">Weight (oz):</Label>
+                                        <Label check htmlFor="weightoz">Weight (oz):</Label>
                                    </Col>
                                    <Col>
                                         <Input
