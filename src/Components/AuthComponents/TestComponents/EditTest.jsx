@@ -125,7 +125,7 @@ export default class EditTest extends React.Component{
 
      getLogs(id){
           console.log('getLogs rendered')
-          fetch(`${APIURL}/child/:${id}`, {
+          fetch(`${APIURL}/child/${id}`, {
                method: 'GET',
                headers: new Headers({
                     'Content-Type': 'application/json',
