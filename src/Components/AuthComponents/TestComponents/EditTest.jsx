@@ -15,6 +15,9 @@ import {
 import TestIndex from './TestIndex';
 import APIURL from '../../helpers/environment';
 
+// This test doesn't work because I do not have a GET all endpoint for my logs. I'm passing the child prop expecting
+// to have to use the child.id to get that child's foodlogs, but I can't use it.
+
 export default class EditTest extends React.Component{
      constructor(props){
           super(props)
@@ -129,8 +132,8 @@ export default class EditTest extends React.Component{
                     'Authorization': this.props.token
                })
           }).then( (res) => res.json())
-          .then((foodData) => {
-               this.setState({logList: foodData});
+          .then((child) => {
+               this.setState({logList: child.foodlogs});
           })
           .then(() => {
                <TestIndex logList={this.state.logList} deleteLog={this.deleteLog} editLog={this.editLog} />
